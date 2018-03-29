@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-28T14:39:29.350Z">
+<meta property="og:updated_time" content="2018-03-29T02:19:56.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手把手带你搭建博客--超详细教程">
 <meta name="twitter:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
@@ -360,7 +360,7 @@
 </li>
 <li><p><strong>用Git把index.html提交到GitHub上,在cmd中输入以下命令</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git init</span></span><br><span class="line"><span class="comment"># git add index.html</span></span><br><span class="line"><span class="comment"># git commit -m "我的第一篇博客"</span></span><br><span class="line"><span class="comment"># git remote add origin https://github.com/your_username/your_username.github.io.git</span></span><br><span class="line"><span class="comment"># git push -u origin master</span></span><br></pre></td></tr></table></figure>
-<p>   在浏览器中输入your_username.github.io即可以访问。<br>   <strong>本质：</strong>在GitHub中创建的love-coder.github.io仓库中master分支中的静态文件可以被直接访问。理论上，依据这种方法我们就可以开始构建自己的博客了，但是我们只是想写文章，而这种原始的方式除此之外还需要写HTML、CSS甚至JS文件，显然太过繁琐。为此出现了很多框架，帮助我们专注于博客本身即写文章，而无需去考虑怎么生成静态文件。Hexo就是这样一款基于Node.js的框架。</p>
+<p>   在浏览器中输入your_username.github.io即可以访问。<br>   <strong>本质：</strong>在GitHub中创建的love-coder.github.io仓库中master分支中的静态文件可以被直接访问。理论上，依据这种方法我们就可以开始构建自己的博客了，但是我们只是想写文章，而这种原始的方式除此之外还需要写HTML、CSS甚至JS文件，显然太过繁琐。为此出现了很多框架，帮助我们专注于博客本身即写文章，而无需去考虑怎么生成静态文件。<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo</a>就是这样一款基于Node.js的框架。</p>
 </li>
 </ul>
 <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><ul>
@@ -384,11 +384,10 @@ branch: master
 3.必须是 git，不能为github。
 4.repo不要写成reposority。
 </code></pre></li>
-<li><strong>部署hexo</strong><br>输入下面的命令将hexo博客部署到github中：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">清空静态页面</span><br><span class="line">$ hexo clean</span><br><span class="line">生成静态页面</span><br><span class="line">$ hexo g</span><br><span class="line">执行如下命令才能使用git部署</span><br><span class="line">$ npm install hexo-deployer-git -save</span><br><span class="line">部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<li><p><strong>部署hexo</strong><br>输入下面的命令将hexo博客部署到github中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">清空静态页面</span><br><span class="line">$ hexo clean</span><br><span class="line">生成静态页面</span><br><span class="line">$ hexo g</span><br><span class="line">执行如下命令才能使用git部署</span><br><span class="line">$ npm install hexo-deployer-git -save</span><br><span class="line">部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>   打开网页，输入你的GitHub网址，打开GitHub上托管的博客。</p>
 </li>
-</ul>
-<p>打开网页，输入你的GitHub网址，打开GitHub上托管的博客。</p>
-<ul>
 <li><p><strong>问题解决</strong><br>出现hexo -d报错的解决方案<br>1.删除你在E:\hexo下面的.deploy_git隐藏文件夹，显示隐藏文件夹<a href="https://jingyan.baidu.com/article/f3ad7d0fc9e02709c3345baa.html" target="_blank" rel="external">方法</a><br>2.在E:\blogresoft\git\Git文件夹下双击git-bash.exe，输入如下代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd e</span><br><span class="line">$ cd hexo</span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf false</span><br></pre></td></tr></table></figure>
 <p>   3.重新部署hexo</p>
@@ -404,6 +403,17 @@ git commit -m &quot;XX&quot; ：提交文件，-m后面是注释
 git remote add origin git@github.com:your_username/test.git ：关联一个远程库，yourgithubname需要替换成你的github账户名
 git push -u origin master ：把当前master分支推送到远程库
 </code></pre></li>
+<li><strong>更换主题</strong><br>一般而言，由于Hexo默认主题（E:\hexo\themes下的landscape主题）比较简陋，我们还可以选择其他主题，比如本博客选择的NexT主题。更换主题为NexT的详细过程请参见<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT文档</a>。<br><strong>注意：</strong>打开.yml文件以及.md文件时，要使用例如：Sublime Text软件，不能直接用记事本打开，可能会引起中文乱码的问题。</li>
+<li><p><strong>写博客</strong><br><strong>创建博客文章：</strong>在E:\hexo\source中的_posts文件夹中新建博客文章，后缀是.md。打开刚刚新建的.md文件就可以开始写博客了！除了在文章开头部分的一些参数，比如标题（title: ）、创建时间（date: ）等，正文部分是用Markdown格式书写，可参考<a href="https://www.jianshu.com/p/82e730892d42" target="_blank" rel="external">Markdown语法</a>。<br><strong>注意：</strong>NexT默认主页显示文章的全部内容，这对于有些很长的文章来说非常不美观，建议主页仅显示文章的摘要。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在合适的位置插入以下内容作为分隔符</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">分隔符以前的内容将会在索引页上显示为摘要</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>友情提示：</strong><br>1.写文章的过程中可以启动Hexo本地站点，并开启调试模式（即加上 –debug），整个命令是 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s --debug</span><br></pre></td></tr></table></figure>
+<p>   在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo <span class="keyword">is</span> running at http://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">4000</span>/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>   此时即可使用浏览器访问localhost:4000，检查站点是否正确运行。<br>   2.写好文章之后，输入以下命令，即可在自己的GitHub网址上看到新写的博客了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>同时感谢侯俊耀师兄的帮助以及韩春师兄的博客文章–<a href="http://hanchun.tech/2017/01/27/借助GitHub-Pages搭建博客/#more" target="_blank" rel="external">借助GitHub Pages搭建博客</a></p>
 
