@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
+<meta name="description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手把手带你搭建博客--超详细教程">
 <meta property="og:url" content="http://yoursite.com/2016/09/20/搭建博客说明/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
+<meta property="og:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T02:19:56.961Z">
+<meta property="og:updated_time" content="2018-03-29T02:55:38.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手把手带你搭建博客--超详细教程">
-<meta name="twitter:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
+<meta name="twitter:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
 
 
 
@@ -319,22 +319,16 @@
       
 
       
-        <p>GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。<a id="more"></a></p>
+        <p>GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。<a id="more"></a></p>
 <h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
-<li><strong>GitHub</strong>: GitHub是一个利用Git进行版本控制、专门用于存放软件代码与内容的共享虚拟主机服务。</li>
+<li><strong>GitHub</strong>: GitHub是一个利用Git进行版本控制，专门用于存放软件代码与内容的共享虚拟主机服务。</li>
 <li><strong>GitHub Pages</strong>: GitHub Pages设计的初衷是为托管在GitHub上的项目提供介绍页面，开发者们可以通过GitHub Pages为自己的每个项目创建一个用于介绍该项目的静态网站。</li>
 <li><strong>Git</strong> : Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git就是一个版本控制的工具，用它可以将我们写的代码提交到GitHub上。</li>
 </ul>
 <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><ul>
-<li><strong>Node</strong><br>作用：是生成静态页面。<br>安装步骤：<pre><code>1.在Node.js[官网](https://nodejs.org/en/)下载相应平台的最新版本。 
-2.点击8.9.1LTS下载至E盘新建的blogresoft文件夹中。
-3.双击.msi文件安装，点击next即可，自定义安装地址为E:\blogresoft\node。
-</code></pre></li>
-<li><strong>Git</strong><br>作用：将本地的hexo内容提交到GitHub上去。<br>安装步骤：<pre><code>1.在Git[官网](https://git-scm.com/download/win)下载同电脑操作系统类型相同的版本。
-2.例如：点击64-bit Git for Windows Setup下载至E盘的blogresoft文件夹中。
-3.双击.msi文件安装，点击next即可，自定义安装地址为E:\blogresoft\git。
-</code></pre></li>
-<li><strong>申请GitHub账号</strong><br>没有GitHub账号的话，需要自己去注册一个，注册过程参见<a href="https://jingyan.baidu.com/article/4e5b3e193cadf491901e24cb.html" target="_blank" rel="external">申请GitHub账号</a>。<strong>注意</strong>：请记住自己的账号、邮箱和密码。</li>
+<li><strong>Node</strong><br>作用：生成静态页面。<br>安装步骤：<br>   1.在Node.js<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>下载相应平台的最新版本。<br>   2.点击8.9.1LTS下载至E盘新建的blogresoft文件夹中。<br>   3.双击.msi文件安装，点击next即可，自定义安装地址为E:\blogresoft\node。</li>
+<li><strong>Git</strong><br>作用：将本地的Hexo内容提交到GitHub上去。<br>安装步骤：<br>   1.在Git<a href="https://git-scm.com/download/win" target="_blank" rel="external">官网</a>下载同电脑操作系统类型相同的版本。<br>   2.例如：点击64-bit Git for Windows Setup下载至E盘的blogresoft文件夹中。<br>   3.双击.msi文件安装，点击next即可，自定义安装地址为E:\blogresoft\git。</li>
+<li><strong>申请GitHub账号</strong><br>没有GitHub账号的话，需要自己去注册一个，注册过程参见<a href="https://jingyan.baidu.com/article/4e5b3e193cadf491901e24cb.html" target="_blank" rel="external">申请GitHub账号</a>。<strong>注意：</strong>请记住自己的账号、邮箱和密码。</li>
 <li><p><strong>配置SSH Keys</strong><br>作用：配置SSH Keys以后，每次对自己的博客有所改动，提交的时候，不需要再手动输入GitHub的账号和密码。<br>配置过程：<br>  在E:\blogresoft\git\Git文件夹下双击git-bash.exe，输入以下命令，检查是否已经存在.ssh文件夹：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
 <p>  如果不存在，执行如下代码，生成.ssh文件夹：</p>
@@ -342,80 +336,70 @@
 <p>  然后执行如下代码，进入.ssh文件夹：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd .ssh</span><br></pre></td></tr></table></figure>
 <p>  输入如下代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C<span class="string">"你的GitHub登录邮箱"</span></span><br></pre></td></tr></table></figure>
-<pre><code>输入公钥对保存文件名为：id_rsa  按回车键
-提示是否使用长密码，按回车，继续按回车，不使用
-</code></pre><p>  将ssh公钥部分添加到GitHub，.ssh文件夹下后缀名为.pub的文件是公钥，右键打开方式选择写字板打开，复制其中所有的内容。在GitHub网站右上角点击setting。点击左侧SSH and GPG keys，点击右上角New SSH key，在Key中粘贴.ssh文件夹下后缀名为.pub的文件的所有内容，点击Add SSH key添加公钥，此时公钥状态为灰色。<br>  在E:\blogresoft\git\Git文件夹下双击git-bash.exe，输入以下命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C<span class="string">"你的GitHub登录邮箱"</span></span><br><span class="line">输入公钥对保存文件名为：id_rsa  按回车键</span><br><span class="line">提示是否使用长密码，按回车，继续按回车，不使用</span><br></pre></td></tr></table></figure>
+<p>   将ssh公钥部分添加到GitHub，.ssh文件夹下后缀名为.pub的文件是公钥，右键打开方式选择写字板打开，复制其中所有的内容。在GitHub网站右上角点击setting。点击左侧SSH and GPG keys，点击右上角New SSH key，在Key中粘贴.ssh文件夹下后缀名为.pub的文件的所有内容，点击Add SSH key添加公钥，此时公钥状态为灰色。<br>   在E:\blogresoft\git\Git文件夹下双击git-bash.exe，输入以下命令：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"username"</span></span><br><span class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
-<pre><code>注释：username为注册GitHub时的账户名，email为注册注册GitHub时的邮箱。
-</code></pre><p>   测试SSH是否配置成功，输入命令</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<pre><code>出现提示，输入yes回车，出现欢迎提示。此时回到SSH and GPG keys处，公钥状态变为绿色。
-</code></pre></li>
+<p>   <strong>注释：</strong>username为注册GitHub时的账户名，email为注册GitHub时的邮箱。<br>   输入如下命令，测试SSH是否配置成功：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">出现提示，输入yes回车，出现欢迎提示</span><br></pre></td></tr></table></figure>
+<p>   此时回到SSH and GPG keys处，公钥状态变为绿色。</p>
+</li>
 </ul>
 <h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><ul>
-<li><strong>在Git上新建一个仓库</strong><br>在GitHub上新建一个仓库，并取名为your_username.github.io，其中your_username是您自己的账号名。<a href="https://jingyan.baidu.com/article/ca00d56c5f0483e99eebcf8b.html" target="_blank" rel="external">新建仓库</a></li>
+<li><strong>在Git上新建一个仓库</strong><br>在GitHub上新建一个仓库<a href="https://jingyan.baidu.com/article/ca00d56c5f0483e99eebcf8b.html" target="_blank" rel="external">新建仓库</a>，并取名为your_username.github.io，其中your_username是您自己的账号名。</li>
 <li><p><strong>在本地写博客</strong><br>在E:\blogresoft文件夹下新建一个文件夹gittest，新建一个index.html文件，并输入一下内容</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;p&gt;你好！这是我的第一篇博客&lt;/p&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>用Git把index.html提交到GitHub上,在cmd中输入以下命令</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git init</span></span><br><span class="line"><span class="comment"># git add index.html</span></span><br><span class="line"><span class="comment"># git commit -m "我的第一篇博客"</span></span><br><span class="line"><span class="comment"># git remote add origin https://github.com/your_username/your_username.github.io.git</span></span><br><span class="line"><span class="comment"># git push -u origin master</span></span><br></pre></td></tr></table></figure>
-<p>   在浏览器中输入your_username.github.io即可以访问。<br>   <strong>本质：</strong>在GitHub中创建的love-coder.github.io仓库中master分支中的静态文件可以被直接访问。理论上，依据这种方法我们就可以开始构建自己的博客了，但是我们只是想写文章，而这种原始的方式除此之外还需要写HTML、CSS甚至JS文件，显然太过繁琐。为此出现了很多框架，帮助我们专注于博客本身即写文章，而无需去考虑怎么生成静态文件。<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo</a>就是这样一款基于Node.js的框架。</p>
+<p>   在浏览器中输入your_username.github.io即可访问。<br>   <strong>本质：</strong>在GitHub中创建的your_username.github.io仓库中master分支中的静态文件可以被直接访问。理论上，依据这种方法我们就可以开始构建自己的博客了，但是我们只是想写文章，而这种原始的方式除此之外还需要写HTML、CSS甚至JS文件，显然太过繁琐。为此出现了很多框架，帮助我们专注于博客本身即写文章，而无需去考虑怎么生成静态文件。<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo</a>就是这样一款基于Node.js的框架。</p>
 </li>
 </ul>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><ul>
-<li><p><strong>安装hexo步骤</strong><br>在E:\blogresoft\git\Git文件夹下双击git-bash.exe</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ul>
+<li><p><strong>安装Hexo步骤</strong><br>在E:\blogresoft\git\Git文件夹下双击git-bash.exe</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">输入以下命令,安装hexo，需要等待半分钟：</span><br><span class="line">$ npm install -g hexo</span><br><span class="line">在E盘下新建博客文件夹hexo，并切换至hexo工作目录</span><br><span class="line">$ cd hexo</span><br><span class="line">初始化博客文件夹，需要等待几分钟</span><br><span class="line">$ hexo init</span><br><span class="line">安装hexo的扩展插件</span><br><span class="line">$ npm install</span><br><span class="line">安装其它插件</span><br><span class="line">$ npm install hexo-deployer-git -save</span><br><span class="line">$ npm install hexo-renderer-ejs -save</span><br><span class="line">$ npm install hexo-renderer-stylus -save</span><br><span class="line">$ npm install hexo-render-marked -save</span><br><span class="line">生成静态页面</span><br><span class="line">$ hexo g</span><br><span class="line">开启本地服务器</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 <p>   打开浏览器，就可以在localhost:4000看到刚刚创建的博客了。</p>
 </li>
 </ul>
-<h2 id="部署hexo"><a href="#部署hexo" class="headerlink" title="部署hexo"></a>部署hexo</h2><ul>
+<h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><ul>
 <li><strong>修改配置</strong><br>修改站点配置文件E:\hexo_config.yml，修改deploy项的内容，如下所示：<pre><code># Deployment 注释
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 # 类型
 type: git
 # 仓库
-repo: git@github.com:xuezhisd/xuezhisd.github.io.git
+repo:git@github.com:xuezhisd/xuezhisd.github.io.git
 # 分支
 branch: master
-</code></pre>   <strong>注意：</strong><pre><code>1.type: git中的冒号后面有空格。
-2.将git@github.com:xuezhisd/xuezhisd.github.io.git中的用户名换成自己的用户名git@github.com:github_username/github_username.github.io.git。
-3.必须是 git，不能为github。
-4.repo不要写成reposority。
-</code></pre></li>
-<li><p><strong>部署hexo</strong><br>输入下面的命令将hexo博客部署到github中：</p>
+</code></pre>   <strong>注意：</strong><br>   1.type: git中的冒号后面有空格。<br>   2.将git@github.com:xuezhisd/xuezhisd.github.io.git中的用户名换成自己的用户名 git@github.com:github_username/github_username.github.io.git。<br>   3.必须是 git，不能为github。<br>   4.repo不要写成reposority。</li>
+<li><p><strong>部署Hexo</strong><br>输入下面的命令将Hexo博客部署到GitHub中：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">清空静态页面</span><br><span class="line">$ hexo clean</span><br><span class="line">生成静态页面</span><br><span class="line">$ hexo g</span><br><span class="line">执行如下命令才能使用git部署</span><br><span class="line">$ npm install hexo-deployer-git -save</span><br><span class="line">部署</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>   打开网页，输入你的GitHub网址，打开GitHub上托管的博客。</p>
 </li>
-<li><p><strong>问题解决</strong><br>出现hexo -d报错的解决方案<br>1.删除你在E:\hexo下面的.deploy_git隐藏文件夹，显示隐藏文件夹<a href="https://jingyan.baidu.com/article/f3ad7d0fc9e02709c3345baa.html" target="_blank" rel="external">方法</a><br>2.在E:\blogresoft\git\Git文件夹下双击git-bash.exe，输入如下代码：</p>
+<li><p><strong>问题解决</strong><br>出现hexo -d报错的解决方案<br>1.删除你在E:\hexo下面的.deploy_git隐藏文件夹，<a href="https://jingyan.baidu.com/article/f3ad7d0fc9e02709c3345baa.html" target="_blank" rel="external">显示隐藏文件夹方法</a><br>2.在E:\blogresoft\git\Git文件夹下双击git-bash.exe，输入如下代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd e</span><br><span class="line">$ cd hexo</span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf false</span><br></pre></td></tr></table></figure>
-<p>   3.重新部署hexo</p>
+<p>   3.重新部署Hexo</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <p>   4.打开自己的网址，验证是否部署成功</p>
 </li>
 </ul>
 <h2 id="其它补充"><a href="#其它补充" class="headerlink" title="其它补充"></a>其它补充</h2><ul>
-<li><strong>Git基本常用命令</strong><pre><code>mkdir XX ：创建一个XX目录
-git init ：把当前的目录变成可以管理的git仓库，生成隐藏的.git文件
-git add XX ：把XX文件添加到暂存区去
-git commit -m &quot;XX&quot; ：提交文件，-m后面是注释
-git remote add origin git@github.com:your_username/test.git ：关联一个远程库，yourgithubname需要替换成你的github账户名
-git push -u origin master ：把当前master分支推送到远程库
-</code></pre></li>
-<li><strong>更换主题</strong><br>一般而言，由于Hexo默认主题（E:\hexo\themes下的landscape主题）比较简陋，我们还可以选择其他主题，比如本博客选择的NexT主题。更换主题为NexT的详细过程请参见<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT文档</a>。<br><strong>注意：</strong>打开.yml文件以及.md文件时，要使用例如：Sublime Text软件，不能直接用记事本打开，可能会引起中文乱码的问题。</li>
-<li><p><strong>写博客</strong><br><strong>创建博客文章：</strong>在E:\hexo\source中的_posts文件夹中新建博客文章，后缀是.md。打开刚刚新建的.md文件就可以开始写博客了！除了在文章开头部分的一些参数，比如标题（title: ）、创建时间（date: ）等，正文部分是用Markdown格式书写，可参考<a href="https://www.jianshu.com/p/82e730892d42" target="_blank" rel="external">Markdown语法</a>。<br><strong>注意：</strong>NexT默认主页显示文章的全部内容，这对于有些很长的文章来说非常不美观，建议主页仅显示文章的摘要。</p>
+<li><p><strong>Git基本常用命令</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">创建一个XX目录:</span><br><span class="line">$ mkdir XX</span><br><span class="line">把当前的目录变成可以管理的git仓库，生成隐藏的.git文件:</span><br><span class="line">$ git init </span><br><span class="line">把XX文件添加到暂存区去:</span><br><span class="line">$ git add XX</span><br><span class="line">提交文件，-m后面是注释:</span><br><span class="line">$ git commit -m <span class="string">"XX"</span></span><br><span class="line">关联一个远程库，yourgithubname需要替换成你的github账户名:</span><br><span class="line">$ git remote add origin git@github.com:your_username/test.git</span><br><span class="line">把当前master分支推送到远程库:</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更换主题</strong><br>一般而言，由于Hexo默认主题（E:\hexo\themes下的landscape主题）比较简陋，我们还可以选择其他主题，比如本博客选择的NexT主题。更换主题为NexT的详细过程请参见<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT文档</a>。<br><strong>注意：</strong>打开.yml文件以及.md文件时，要使用例如：Sublime Text软件，不能直接用记事本打开，可能会引起中文乱码的问题。</p>
+</li>
+<li><p><strong>写博客</strong><br><strong>创建博客文章：</strong>在E:\hexo\source中的_posts文件夹中新建博客文章，后缀是.md。打开刚刚新建的.md文件就可以开始写博客了！除了在文章开头部分的一些参数，比如标题（title: ）、创建时间（date: ）等，正文部分使用Markdown格式书写，可参考<a href="https://www.jianshu.com/p/82e730892d42" target="_blank" rel="external">Markdown语法</a>。<br><strong>注意：</strong>NexT默认主页显示文章的全部内容，这对于有些很长的文章来说非常不美观，建议主页仅显示文章的摘要。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在合适的位置插入以下内容作为分隔符</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">分隔符以前的内容将会在索引页上显示为摘要</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>友情提示：</strong><br>1.写文章的过程中可以启动Hexo本地站点，并开启调试模式（即加上 –debug），整个命令是 </p>
+<li><p><strong>友情提示：</strong><br>1.写文章的过程中可以启动Hexo本地站点，并开启调试模式（即加上 –debug），整个命令是：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s --debug</span><br></pre></td></tr></table></figure>
 <p>   在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo <span class="keyword">is</span> running at http://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">4000</span>/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>   此时即可使用浏览器访问localhost:4000，检查站点是否正确运行。<br>   2.写好文章之后，输入以下命令，即可在自己的GitHub网址上看到新写的博客了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>   此时即可使用浏览器访问localhost:4000，检查站点是否正确运行。<br>   2.写好文章之后，输入以下命令，即可在自己的GitHub网址上看到新写的博客了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd e:</span><br><span class="line">$ cd hexo</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>同时感谢侯俊耀师兄的帮助以及韩春师兄的博客文章–<a href="http://hanchun.tech/2017/01/27/借助GitHub-Pages搭建博客/#more" target="_blank" rel="external">借助GitHub Pages搭建博客</a></p>
+<p>至此，搭建博客以及写博客时相关配置的介绍已经全部完成，希望这篇博文对你搭建博客的过程有所帮助。同时感谢侯俊耀师兄的帮助以及韩春师兄的博客文章–<a href="http://hanchun.tech/2017/01/27/借助GitHub-Pages搭建博客/#more" target="_blank" rel="external">借助GitHub Pages搭建博客</a>。</p>
 
       
     </div>
@@ -566,7 +550,7 @@ git push -u origin master ：把当前master分支推送到远程库
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境"><span class="nav-number">2.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建仓库"><span class="nav-number">3.</span> <span class="nav-text">新建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo"><span class="nav-number">4.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署hexo"><span class="nav-number">5.</span> <span class="nav-text">部署hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它补充"><span class="nav-number">6.</span> <span class="nav-text">其它补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境"><span class="nav-number">2.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建仓库"><span class="nav-number">3.</span> <span class="nav-text">新建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署Hexo"><span class="nav-number">5.</span> <span class="nav-text">部署Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它补充"><span class="nav-number">6.</span> <span class="nav-text">其它补充</span></a></li></ol></div>
             
 
           </div>
