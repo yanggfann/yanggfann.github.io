@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="通用电气公司（General Electric Company，简称GE），是世界上最大的提供技术和服务业务的跨国公司。通过自己的不懈努力，成为了GE的一名数据分析实习生，借博客这个平台记录自己的实习过程，希望不仅可以帮助他人，也可以总结自己，获得更大的提升。这篇博客主要讲解实习过程中为Module WS.xlsx文件录入数据的详细细节，以及在DSS学习中学到的Acronyms。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T14:43:40.257Z">
+<meta property="og:updated_time" content="2018-05-17T13:40:52.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GE实习之Module WS">
 <meta name="twitter:description" content="通用电气公司（General Electric Company，简称GE），是世界上最大的提供技术和服务业务的跨国公司。通过自己的不懈努力，成为了GE的一名数据分析实习生，借博客这个平台记录自己的实习过程，希望不仅可以帮助他人，也可以总结自己，获得更大的提升。这篇博客主要讲解实习过程中为Module WS.xlsx文件录入数据的详细细节，以及在DSS学习中学到的Acronyms。">
@@ -324,19 +324,102 @@
 <li><strong>WS Validation列</strong><br>原有45台 <strong>ESN（Electronic Serial Number，电子序列号）</strong>，在WorkScope中查看每台ESN的pdf文件，在GE的EWT网址中搜索ESN号，点击Generate Customer Report 生成的便是该ESN的pdf文件。填写WS Validation列，填写的规则是：<br>   1.没有的模块填写NA<br>   2.HMU模块，根据查找到的description，填写的是Visual Inspection 或 Visually Inspect<br>   3.M15-17 Fan Case模块，pdf中的M15 Fan Case等同于该模块，pdf中的Fan-Stator M17 level 则在WS Validation列填入Fan-Stator M17 I 等<br>   4.M23、M24、M31、M32模块属于M40模块，若有level值则填入对应的level值，若没有level值或M23、M24、M31、M32模块，则在WS Validation 列填入NA.M40 II(ESN中M40模块的level值)</li>
 <li><strong>Sub Module WS列和WS Validation列</strong><br>新加18台ESN，在WorkScope里查看每台ESN的pdf文件，填写Sub Module WS列和WS Validation列，填写规则是：<br>   1.Sub Module列每个模块，若有对应的level值，则在Sub Module WS列中填入相应的level值（1即为I，2即为II……）<br>   2.Sub Module列的模块，若没有，则Sub Module WS空着，即不填也不写WS<br>   3.若没有HMU模块，则在Sub Module WS中空着，在WS Validation中填入对应的description，例如：Visual Inspection 或 Visually Inspect<br>   4.M23、M24、M31、M32模块属于M40模块，若有level值则填入对应的level值，若没有level值或M23、M24、M31、M32模块，则在WS Validation 列填入NA.M40 II(ESN中M40模块的level值)</li>
 <li><strong>Cost level列与Comments列</strong><br>Cost level列与Comments列的填写规则是：<br>   1.复制整列Sub Module WS列内容至Cost level列<br>   2.Filter出Sub Module列的M10 Engine模块，将Cost level全部改为SA<br>   3.Filter出Sub Module列的M71模块，若Sub Module WS为IV，则Cost level也为IV，若Sub Module WS为其它，则Cost level改为II<br>   4.Filter出Sub Module列的M58模块，查看每个ESN的pdf文件，若M58的Comments为Route TCF to vendor for repair，则将该描述添加进Comments列，且若Sub Module WS为II，则将Cost level改为III</li>
-<li><strong>Block列与Part Number列</strong><br>在GE的TEXL GE MRO Data Collaboration网站上找到新加的18台ESN的.zip文件，下载并解压。Block列与Part Number列的填写规则是：<br>   1.在每个ESN的.zip文件中找到Configuration Report R00.xlsx文件并打开，例如查到的HPT S1N 的PN号为2084M68G11<br>   2.在该ESN的.zip文件中找到Life Limited Parts Report R00.xlsx文件并打开，查看Description列中的SEAL-INTERSTAGE HPT ROTOR IN对应的PN号，该PN号与Block的对应关系如下表所示：<pre><code>      PN     Block   
-2087M322P02  EIS Old
-2087M322P03  EIS Old
-2448M332P01  EIS New
-2505M72P01   EIS Old
-</code></pre>   PN为2505M72P01的，在Block列天上EIS Old，Part Number列标注上2505M72P01，若PN为其它，则在Block列标注PN值对应的Block值即可，Part Number列不标注。（询问Mentor后，Mentor与技术人员沟通后做出的该规定方法）</li>
+<li><strong>Block列与Part Number列</strong><br>在GE的TEXL GE MRO Data Collaboration网站上找到新加的18台ESN的.zip文件，下载并解压。Block列与Part Number列的填写规则是：<br>   1.在每个ESN的.zip文件中找到Configuration Report R00.xlsx文件并打开，例如查到的HPT S1N 的PN号为2084M68G11<br>   2.在该ESN的.zip文件中找到Life Limited Parts Report R00.xlsx文件并打开，查看Description列中的SEAL-INTERSTAGE HPT ROTOR IN对应的PN号，该PN号与Block的对应关系如下表所示：<br>   PN为2505M72P01的，在Block列天上EIS Old，Part Number列标注上2505M72P01，若PN为其它，则在Block列标注PN值对应的Block值即可，Part Number列不标注。（询问Mentor后，Mentor与技术人员沟通后做出的该规定方法）</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>PN</th>
+<th>Block</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2087M322P02</td>
+<td>EIS Old</td>
+</tr>
+<tr>
+<td>2087M322P03</td>
+<td>EIS Old</td>
+</tr>
+<tr>
+<td>2448M332P01</td>
+<td>EIS New</td>
+</tr>
+<tr>
+<td>2505M72P01</td>
+<td>EIS Old</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Block-定义"><a href="#Block-定义" class="headerlink" title="Block 定义"></a>Block 定义</h2><ul>
-<li><strong>HPT Rotor Interstage Seal</strong><br>   PN           Comment                     Scrap rate     hwconf option<br>   2087M322P02  old design, not repairable   100%           Old<br>   2087M322P03  old design, not repairable   100%           Old<br>   2448M332P01  new design, R88DT,repairable 3%             New<br>   2505M72P01   new design + change to R65 <pre><code>material, not repairable     3%             New
-yet-treat as old 
-</code></pre></li>
-<li><strong>EIS, Block 2012, Block 2014, Block 2015 definition</strong><br>   EIS<br>   At least one of the following is true: HPT S1N: G11 OR G11/G15, HPT S2N: G07 OR G07/G13, TCF Cooling holes = no, OGV&lt;&gt;P, Shroud = P10 OR P16.<br>   Block 2012<br>   All of the following must be true: HPT S1N: G15 and up, HPT S2N: G13 and up, TCF Cooling holes = yes, OGV leaf seal = P, Shroud = P15(or any Combination of the following: Shroud = P17 or Spoolie = Yes or Combustor Inner Liner = G05 or G06 or HPT S1 Blade = P09 as long as Block 2014 or Block 2015 definition is not met)<br>   Block 2014<br>   All of the following must be true: HPT S1N: G15 and up, HPT S2N: G13 and up, TCF Cooling holes = yes, OGV leaf seal = P, Shroud = P15, Spoolie migration fix = yes, HPT S1B = P09, Combustor Inner Liner = G07(or any Combination of the following: Shroud = P17 or Combustor Dome = 2110M68G06 or 2256M54G03 as long as Block 2015 definition is not met)<br>   Block 2015<br>   HPT S1N: G15 and up, HPT S2N: G13 and up, TCF Cooling holes = yes, OGV leaf seal = P, Shroud = P17, Spoolie migration fix = yes, HPT S1B = P09, Combustor Inner Liner = G07, Combustor Dome = 2110M68G06 or 2256M54G03</li>
+<li><strong>HPT Rotor Interstage Seal</strong></li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>PN</th>
+<th>Comment</th>
+<th>Scrap rate</th>
+<th>hwconf option</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2087M322P02</td>
+<td>old design, not repairable</td>
+<td>100%</td>
+<td>Old</td>
+</tr>
+<tr>
+<td>2087M322P03</td>
+<td>old design, not repairable</td>
+<td>100%</td>
+<td>Old</td>
+</tr>
+<tr>
+<td>2448M332P01</td>
+<td>new design, R88DT,repairable</td>
+<td>3%</td>
+<td>New</td>
+</tr>
+<tr>
+<td>2505M72P01</td>
+<td>new design + change to R65 material, not repairable yet-treat as old</td>
+<td>3%</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>EIS, Block 2012, Block 2014, Block 2015 definition</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EIS</td>
+<td>At least one of the following is true: HPT S1N: G11 OR G11/G15, HPT S2N: G07 OR G07/G13, TCF Cooling holes = no, OGV&lt;&gt;P, Shroud = P10 OR P16.</td>
+</tr>
+<tr>
+<td>Block 2012</td>
+<td>All of the following must be true: HPT S1N: G15 and up, HPT S2N: G13 and up, TCF Cooling holes = yes, OGV leaf seal = P, Shroud = P15(or any Combination of the following: Shroud = P17 or Spoolie = Yes or Combustor Inner Liner = G05 or G06 or HPT S1 Blade = P09 as long as Block 2014 or Block 2015 definition is not met)</td>
+</tr>
+<tr>
+<td>Block 2014</td>
+<td>All of the following must be true: HPT S1N: G15 and up, HPT S2N: G13 and up, TCF Cooling holes = yes, OGV leaf seal = P, Shroud = P15, Spoolie migration fix = yes, HPT S1B = P09, Combustor Inner Liner = G07(or any Combination of the following: Shroud = P17 or Combustor Dome = 2110M68G06 or 2256M54G03 as long as Block 2015 definition is not met)</td>
+</tr>
+<tr>
+<td>Block 2015</td>
+<td>HPT S1N: G15 and up, HPT S2N: G13 and up, TCF Cooling holes = yes, OGV leaf seal = P, Shroud = P17, Spoolie migration fix = yes, HPT S1B = P09, Combustor Inner Liner = G07, Combustor Dome = 2110M68G06 or 2256M54G03</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Sub-Module"><a href="#Sub-Module" class="headerlink" title="Sub Module"></a>Sub Module</h2><ul>
 <li><strong>Fan Rotor</strong><br>风扇转子</li>
 <li><strong>HMU</strong><br>   Hydro(液压) Mechanical(机械) Unit(组件)</li>
@@ -364,69 +447,262 @@ yet-treat as old
 <li><strong>Safran</strong></li>
 <li><strong>TEST Cell</strong></li>
 </ul>
-<h2 id="Acronyms-首字母缩略词"><a href="#Acronyms-首字母缩略词" class="headerlink" title="Acronyms(首字母缩略词)"></a>Acronyms(首字母缩略词)</h2><ul>
-<li><strong>AWO</strong><br>   Action work-out</li>
-<li><strong>BB</strong><br>   Black Belt</li>
-<li><strong>CA</strong><br>   Course Aerosols(气溶胶)</li>
-<li><strong>BEC</strong><br>   Bangalore(班加罗尔) Engineering（工程） Center (India)</li>
-<li><strong>CAL</strong><br>   Caledonia(加里多尼亚) Scotland(英格兰)</li>
-<li><strong>CAS</strong><br>   Corporate(公司) Audit(审计) Staff(人员)</li>
-<li><strong>CID</strong><br>   Change in Design</li>
-<li><strong>CLP</strong><br>   Catalog(目录) List Price</li>
-<li><strong>CMP</strong><br>   Contract(合同) Margin(保证金) Review(审查)</li>
-<li><strong>CMR</strong><br>   Contribution(贡献) Margin</li>
-<li><strong>CPM</strong><br>   Customer(客户) Program(项目) Manager(经理)</li>
-<li><strong>CSA</strong><br>   Customized(定制) Service(服务) Agreement(协议)</li>
-<li><strong>CTP</strong><br>   Customer Technical Programs(程序)</li>
-<li><strong>DR</strong><br>   Departure(离境) Record(记录)</li>
-<li><strong>DSS</strong><br>   Digital(数字) Services(服务) &amp; Solutions(解决)</li>
-<li><strong>ECR</strong><br>   External(外部) Component(组件) Repair-Non GE Shop</li>
-<li><strong>EFH</strong><br>   Engine Flight Hour</li>
-<li><strong>EGT</strong><br>   Exhaust(排放) Gas Temperature</li>
-<li><strong>EIS</strong><br>   Entry Into Service</li>
-<li><strong>EPEX</strong><br>   Engineering Project Execution Tool</li>
-<li><strong>FDM</strong><br>   Fleet Data Management</li>
-<li><strong>FFP</strong><br>   Firm(坚定的) Fixed(固定的) Price</li>
-<li><strong>FL</strong><br>   Flight Leg (航班时间)</li>
-<li><strong>FPLS</strong><br>   Fixed Price Labor(人工) Schedule(计划)</li>
-<li><strong>GEES</strong><br>   GE Engine Services</li>
-<li><strong>GRC</strong><br>   Global Research(研究) Center</li>
-<li><strong>HCE</strong><br>   High-Cost Event</li>
-<li><strong>ICR</strong><br>   Internal(内部的) Component Repair</li>
-<li><strong>LCE</strong><br>   Life Cycle Engineering</li>
-<li><strong>LLP</strong><br>   Life Limited Part</li>
-<li><strong>LRU</strong><br>   Line Replaceable(可替换的) Unit(单元)</li>
-<li><strong>LTRA</strong><br>   Long-term Revenue(利润) Accounting(核算)</li>
-<li><strong>MBTH</strong><br>   Material By the Hour</li>
-<li><strong>MCPH</strong><br>   Maintenance(维护) Cost Per Hour</li>
-<li><strong>MCPS</strong><br>   Material Cost Per Set</li>
-<li><strong>MCRB</strong><br>   Maintenance Cost Review(审查) Board(委员会)</li>
-<li><strong>MRB</strong><br>   Material Review Board</li>
-<li><strong>MRO</strong><br>   Maintenance, Repair, Overhaul</li>
-<li><strong>NPI</strong><br>   New Product Introduction</li>
-<li><strong>NTE</strong><br>   Not-tO-Exceed(未超过)</li>
-<li><strong>OCPH</strong><br>   Overhead(间接) Cost Per Hour</li>
-<li><strong>OM</strong><br>   Operating Margin</li>
-<li><strong>OVH</strong><br>   Overhaul</li>
-<li><strong>OWS</strong><br>   On-wing(在翼) Support</li>
-<li><strong>PO</strong><br>   Purchase(购买) Order(清单)</li>
-<li><strong>PPR</strong><br>   Platform Product Review</li>
-<li><strong>PV</strong><br>   Producer(生产者) Value</li>
-<li><strong>QI</strong><br>   Quarter(季度) Impact(影响)</li>
-<li><strong>RSP</strong><br>   Revenue(收入) Share(分享) Partner(伙伴)</li>
-<li><strong>SC</strong><br>   Shop Cost</li>
-<li><strong>SOP</strong><br>   Standard Operating Procedure(流程)</li>
-<li><strong>SPA</strong><br>   Services Performance &amp; Analysis</li>
+<h2 id="Acronyms-首字母缩略词"><a href="#Acronyms-首字母缩略词" class="headerlink" title="Acronyms(首字母缩略词)"></a>Acronyms(首字母缩略词)</h2><table>
+<thead>
+<tr>
+<th>Acronyms</th>
+<th>Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWO</td>
+<td>Action work-out</td>
+</tr>
+<tr>
+<td>BB</td>
+<td>Black Belt</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>Course Aerosols(气溶胶)</td>
+</tr>
+<tr>
+<td>BEC</td>
+<td>Bangalore(班加罗尔) Engineering（工程） Center (India)</td>
+</tr>
+<tr>
+<td>CAL</td>
+<td>Caledonia(加里多尼亚) Scotland(英格兰)</td>
+</tr>
+<tr>
+<td>CAS</td>
+<td>Corporate(公司) Audit(审计) Staff(人员)</td>
+</tr>
+<tr>
+<td>CID</td>
+<td>Change in Design</td>
+</tr>
+<tr>
+<td>CLP</td>
+<td>Catalog(目录) List Price</td>
+</tr>
+<tr>
+<td>CMP</td>
+<td>Contract(合同) Margin(保证金) Review(审查)</td>
+</tr>
+<tr>
+<td>CMR</td>
+<td>Contribution(贡献) Margin</td>
+</tr>
+<tr>
+<td>CPM</td>
+<td>Customer(客户) Program(项目) Manager(经理)</td>
+</tr>
+<tr>
+<td>CSA</td>
+<td>Customized(定制) Service(服务) Agreement(协议)</td>
+</tr>
+<tr>
+<td>CTP</td>
+<td>Customer Technical Programs(程序)</td>
+</tr>
+<tr>
+<td>DR</td>
+<td>Departure(离境) Record(记录)</td>
+</tr>
+<tr>
+<td>DSS</td>
+<td>Digital(数字) Services(服务) &amp; Solutions(解决)</td>
+</tr>
+<tr>
+<td>ECR</td>
+<td>External(外部) Component(组件) Repair-Non GE Shop</td>
+</tr>
+<tr>
+<td>EFH</td>
+<td>Engine Flight Hour</td>
+</tr>
+<tr>
+<td>EGT</td>
+<td>Exhaust(排放) Gas Temperature</td>
+</tr>
+<tr>
+<td>EIS</td>
+<td>Entry Into Service</td>
+</tr>
+<tr>
+<td>EPEX</td>
+<td>Engineering Project Execution Tool</td>
+</tr>
+<tr>
+<td>FDM</td>
+<td>Fleet Data Management</td>
+</tr>
+<tr>
+<td>FFP</td>
+<td>Firm(坚定的) Fixed(固定的) Price</td>
+</tr>
+<tr>
+<td>FL</td>
+<td>Flight Leg (航班时间)</td>
+</tr>
+<tr>
+<td>FPLS</td>
+<td>Fixed Price Labor(人工) Schedule(计划)</td>
+</tr>
+<tr>
+<td>GEES</td>
+<td>GE Engine Services</td>
+</tr>
+<tr>
+<td>GRC</td>
+<td>Global Research(研究) Center</td>
+</tr>
+<tr>
+<td>HCE</td>
+<td>High-Cost Event</td>
+</tr>
+<tr>
+<td>ICR</td>
+<td>Internal(内部的) Component Repair</td>
+</tr>
+<tr>
+<td>LCE</td>
+<td>Life Cycle Engineering</td>
+</tr>
+<tr>
+<td>LLP</td>
+<td>Life Limited Part</td>
+</tr>
+<tr>
+<td>LRU</td>
+<td>Line Replaceable(可替换的) Unit(单元)</td>
+</tr>
+<tr>
+<td>LTRA</td>
+<td>Long-term Revenue(利润) Accounting(核算)</td>
+</tr>
+<tr>
+<td>MBTH</td>
+<td>Material By the Hour</td>
+</tr>
+<tr>
+<td>MCPH</td>
+<td>Maintenance(维护) Cost Per Hour</td>
+</tr>
+<tr>
+<td>MCPS</td>
+<td>Material Cost Per Set</td>
+</tr>
+<tr>
+<td>MCRB</td>
+<td>Maintenance Cost Review(审查) Board(委员会)</td>
+</tr>
+<tr>
+<td>MRB</td>
+<td>Material Review Board</td>
+</tr>
+<tr>
+<td>MRO</td>
+<td>Maintenance, Repair, Overhaul</td>
+</tr>
+<tr>
+<td>NPI</td>
+<td>New Product Introduction</td>
+</tr>
+<tr>
+<td>NTE</td>
+<td>Not-tO-Exceed(未超过)</td>
+</tr>
+<tr>
+<td>OCPH</td>
+<td>Overhead(间接) Cost Per Hour</td>
+</tr>
+<tr>
+<td>OM</td>
+<td>Operating Margin</td>
+</tr>
+<tr>
+<td>OVH</td>
+<td>Overhaul</td>
+</tr>
+<tr>
+<td>OWS</td>
+<td>On-wing(在翼) Support</td>
+</tr>
+<tr>
+<td>PO</td>
+<td>Purchase(购买) Order(清单)</td>
+</tr>
+<tr>
+<td>PPR</td>
+<td>Platform Product Review</td>
+</tr>
+<tr>
+<td>PV</td>
+<td>Producer(生产者) Value</td>
+</tr>
+<tr>
+<td>QI</td>
+<td>Quarter(季度) Impact(影响)</td>
+</tr>
+<tr>
+<td>RSP</td>
+<td>Revenue(收入) Share(分享) Partner(伙伴)</td>
+</tr>
+<tr>
+<td>SC</td>
+<td>Shop Cost</td>
+</tr>
+<tr>
+<td>SOP</td>
+<td>Standard Operating Procedure(流程)</td>
+</tr>
+<tr>
+<td>SPA</td>
+<td>Services Performance &amp; Analysis</td>
+</tr>
+<tr>
+<td>T&amp;M</td>
+<td>Time and Material Shop Visit</td>
+</tr>
+<tr>
+<td>TC</td>
+<td>True Cost</td>
+</tr>
+<tr>
+<td>TOW</td>
+<td>Time-on-wing</td>
+</tr>
+<tr>
+<td>USM</td>
+<td>Used Serviceable(维修) Material</td>
+</tr>
+<tr>
+<td>WIP</td>
+<td>Work-in-progress 工作正在进行中</td>
+</tr>
+<tr>
+<td>CSA</td>
+<td>Customized Service Agreement</td>
+</tr>
+<tr>
+<td>CCU</td>
+<td>Cumulative Catch Up 累积追补</td>
+</tr>
+<tr>
+<td>SEED</td>
+<td>Services Engineering Engine Data</td>
+</tr>
+<tr>
+<td>EASA</td>
+<td>The European Aviation Safety Agency 欧洲航空安全局Electrical Apparatus Service Association 美国电器设备维修协会</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li><strong>SV</strong><br>   Shop Visit<br>   <strong>SV</strong> : A Shop Visit (typically a full performance restoration) is a term used when an engine has maintenance performed at an internal or external MRO(Maintenance, Repair and Overhaul) facility.<br>   拆下发电机的大修：一个 Shop Visit （通常是完整的性能恢复）是发动机在内部或外部MRO（维护，修理和大修）设施进行维护时使用的术语。</li>
-<li><strong>T&amp;M</strong><br>   Time and Material Shop Visit</li>
-<li><strong>TC</strong><br>   True Cost</li>
-<li><strong>TOW</strong><br>   Time-on-wing</li>
-<li><strong>USM</strong><br>   Used Serviceable(维修) Material</li>
-<li><strong>WIP</strong><br>   Work-in-progress 工作正在进行中</li>
-<li><strong>CSA</strong><br>   Customized Service Agreement</li>
-<li><strong>CCU</strong><br>   Cumulative Catch Up 累积追补</li>
-<li><strong>SEED</strong><br>   Services Engineering Engine Data</li>
-<li><strong>EASA</strong><br>   The European Aviation Safety Agency 欧洲航空安全局<br>   Electrical Apparatus Service Association 美国电器设备维修协会</li>
 </ul>
 
       
@@ -461,6 +737,10 @@ yet-treat as old
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/29/GE实习之数据准备/" rel="prev" title="GE实习之数据准备">
+                GE实习之数据准备 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -541,7 +821,7 @@ yet-treat as old
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
