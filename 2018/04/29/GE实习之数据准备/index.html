@@ -86,12 +86,12 @@
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="数据处理之前，数据准备过程必不可少。这篇博客主要讲解实习过程中为TEXL 2017 45 PR SV Cost Analytics April 20.xlsx文件录入数据的详细细节，以及介绍了几个常用的Exel函数（LEFT、RIGHT、MID、FIND）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:/hexo1110/public/images/ATA.jpg">
-<meta property="og:updated_time" content="2018-05-18T12:16:07.634Z">
+<meta property="og:image" content="http://yoursite.com/img/ATA.jpg">
+<meta property="og:updated_time" content="2018-05-20T03:52:14.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GE实习之数据准备">
 <meta name="twitter:description" content="数据处理之前，数据准备过程必不可少。这篇博客主要讲解实习过程中为TEXL 2017 45 PR SV Cost Analytics April 20.xlsx文件录入数据的详细细节，以及介绍了几个常用的Exel函数（LEFT、RIGHT、MID、FIND）。">
-<meta name="twitter:image" content="e:/hexo1110/public/images/ATA.jpg">
+<meta name="twitter:image" content="http://yoursite.com/img/ATA.jpg">
 
 
 
@@ -326,7 +326,19 @@
 <li><strong>Module WS工作表</strong><br>新加的18台ESN中，906187、906302的M57的level值为II，是不典型的。907248是一个draft类型，资料不完整。因此，只需将Module WS.xlsx中新加的18台，去掉906187、906302、907248之后的15台新ESN加入该文件中的Module WS工作表之中，则该Module WS工作表中包含60台ESN的信息。</li>
 <li><strong>ESN List工作表</strong><br>将SV 2017.xlsx文件中Baseline2工作表中新的15台ESN的信息列对应加入该文件中的ESN List工作表中，则该ESN List工作表包含60台ESN的信息。Baseline2包含的有用信息列有：ESN、Event Date、Event Type、Customer、Region、Block、SV Count、Date、Engine Count</li>
 <li><strong>45 PR SV工作表</strong><br>该工作表中共有50列数据，分别是：Fiscal_Month、Fiscal Year、Fiscal_Week、Sales Order、Induction Date、WorkScope、Plant_Code、Eng Serial、Invoice_Number、Invoice Type、Invoice_Date、Date Received、Payment Due Date、Ship_Date、Parent_SO_Num、New_Cost_Element_Code、New_Cost_Element_SubCode、New_Bucket_Type、Comments、Invoice Amount、Handling Fees、Invoice Amount + Handling Fees、rejected amount、amount approved、True Cost、Elimination、Elimination%、Comments_1、CLP Check、Hours_Billed、LLP IND、Part_Num、Part_Keyword、Qty、Engine_Model_Name、Contract Code、Contract Number、Bill to Customer、Ultimate Customer、Customer Po Number、Po、Vendor Name、SSS Vendor Code、Module、SLC Indicator(Flat File Sent Date)_Updated Data、LRU’S Emirates Covered(Y/N)、Snecma Bill Back Opportunity TND、Data sent to Team to Bill Back to Snecma、updated CLP(as per CLP List &amp; SLC)、updated Standard Cost(AS per STD Cost file and SLC)</li>
-<li><strong>Merged Data工作表</strong><br>对Merged Data工作表中的Part_Keyword列进行筛选，并在其后新插入ATA、RepairNo两列。要求如下：<br>   1.Filter Part_Keyword列以CR开头的行，第一个空格之前的六位数为章节号ATA，第一个空格与第二个空格之间为RepairNo<br>   2.Part_Keyword列中以CR开头的共有46371行数据，筛选出ATA列时的Exel函数式为:<br>   = LEFT(B2,FIND(“ “,B2)-1)<br>   筛选出RepairNo列时的Exel函数式为:<br>   = LEFT(RIGHT(B2,LEN(B2)-FIND(“ “B2)),FIND(“ “,RIGHT(B2,LEN(B2)-FIND(“ “,B2)))-1)<br>   如下所示：<br>   <img src="E:/hexo1110/public/images/ATA.jpg" alt="avatar"><br>   3.分别下拉选中ATA、RepairNo的其它单元格，则可将公式自动应用到每一个单元格，B2会根据单元格自动改变为B3、B4……</li>
+<li><strong>Merged Data工作表</strong><br>对Merged Data工作表中的Part_Keyword列进行筛选，并在其后新插入ATA、RepairNo两列。要求如下：<br>   1.Filter Part_Keyword列以CR开头的行，第一个空格之前的六位数为章节号ATA，第一个空格与第二个空格之间为RepairNo<br>   2.Part_Keyword列中以CR开头的共有46371行数据，筛选出ATA列时的Exel函数式为:<pre><code>= LEFT(B2,FIND(&quot; &quot;,B2)-1)
+</code></pre>   筛选出RepairNo列时的Exel函数式为:<pre><code>= LEFT(RIGHT(B2,LEN(B2)-FIND(&quot; &quot;B2)),FIND(&quot; &quot;,RIGHT(B2,LEN(B2)-FIND(&quot; &quot;,B2)))-1)
+</code></pre>   如下所示：<br>   <img src="/img/ATA.jpg" alt=""><br>   3.分别下拉选中ATA、RepairNo的其它单元格，则可将公式自动应用到每一个单元格，B2会根据单元格自动改变为B3、B4……</li>
+</ul>
+<h2 id="Exel-函数"><a href="#Exel-函数" class="headerlink" title="Exel 函数"></a>Exel 函数</h2><ul>
+<li><strong>LEFT</strong><pre><code>LEFT(text,num_chars)
+</code></pre>   LEFT函数的功能是从第一个字符开始，截取用户指定长度的内容。text代表单元格名称，num_chars指定由LEFT所提取的字符数。例如LEFT(A2,5)的结果为90613。</li>
+<li><strong>RIGHT</strong><pre><code>RIGHT(text,num_chars)
+</code></pre>   RIGHT函数的功能是从最后一个字符开始，从后往前截取用户指定长度的内容。text代表单元格名称，num_chars指定由LEFT所提取的字符数。例如RIGHT(A2,5)的结果为06133。</li>
+<li><strong>MID</strong><pre><code>MID(A2,SEARCH(&quot;6&quot;,A2),2)
+</code></pre>   MID函数表示从A2单元格里查找到第一个出现的6，然后将从它开始（包括它）向右2位的数提取出来。结果为61。</li>
+<li><strong>FIND</strong><pre><code>FIND(find_text,within_text,start_num)
+</code></pre>   FIND函数用来对原始数据中某个字符串进行定位，以确定其位置。FIND函数进行定位时，总是从指定位置开始，返回找到的第一个匹配字符串的位置，而不管其后是否还有相匹配的字符串。find_text表示要查找的字符串。within_text是包含要查找关键字的单元格，就是说要在这个单元格内查找关键字。start_num指定开始进行查找的起始位置，比如start_num为3，则从单元格内第三个字符开始查找关键字，如果忽略start_num，则默认值为1。例如FIND(“6”,A4,1)的结果为3，FIND(“6”,A4,4)的结果为5。</li>
 </ul>
 
       
@@ -478,7 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#录入数据"><span class="nav-number">1.</span> <span class="nav-text">录入数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#录入数据"><span class="nav-number">1.</span> <span class="nav-text">录入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exel-函数"><span class="nav-number">2.</span> <span class="nav-text">Exel 函数</span></a></li></ol></div>
             
 
           </div>

@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T03:06:59.381Z">
+<meta property="og:updated_time" content="2018-05-22T02:47:18.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客--详细教程">
 <meta name="twitter:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
@@ -397,6 +397,10 @@ branch: master
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Hexo <span class="keyword">is</span> running at http://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">4000</span>/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
 <p>   此时即可使用浏览器访问localhost:4000，检查站点是否正确运行。<br>   2.写好文章之后，输入以下命令，即可在自己的GitHub网址上看到新写的博客了：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd e:</span><br><span class="line">$ cd hexo</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>   3.在博客中用markdown插入表格:<br>   第一行写表格的标题行，写法是|列标题|列标题|<br>   第二行固定写|-|-|，前两行这样写，就可以被识别为一个markdown表格<br>   表格后面各行，也是用|分隔，和第一行数目相同<br>   注意：表格的最后一行之后要空一行，才能继续写其它内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|姓名|年龄|</span><br><span class="line">|-|-|</span><br><span class="line">|张三|<span class="number">25</span>|</span><br><span class="line">|李四|<span class="number">23</span>|</span><br></pre></td></tr></table></figure>
+<p>   4.在博客中用markdown插入图片<br>   1&gt; 将_config.yml中的post_asset_folder:false改为post_asset_folder:true<br>   2&gt; 在source文件夹下新建文件夹，并命名为img<br>   3&gt; 插入图片的语法如下，其中ATA代表图片名称，应替换为需要插入的图片名：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/img/ATA.jpg)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>至此，搭建博客以及写博客时相关配置的介绍已经全部完成，希望这篇博文对你搭建博客的过程有所帮助。同时感谢侯俊耀师兄的帮助以及韩春师兄的博客文章–<a href="http://hanchun.tech/2017/01/27/借助GitHub-Pages搭建博客/#more" target="_blank" rel="external">借助GitHub Pages搭建博客</a>。</p>
