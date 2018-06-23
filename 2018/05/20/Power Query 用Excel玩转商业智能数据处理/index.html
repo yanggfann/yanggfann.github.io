@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="越努力越幸运">
+<meta name="description" content="《Power Query 用Excel玩转商业智能数据处理》一书由 朱仕平 著。Power Query在Office 2016中已经被作为内置的工具嵌入【数据】选项卡中。Power Query集成了Access和Excel的功能，可以对数据进行可视化菜单操作，完成对数据的提取（Extract）、转换（Transform）、加载（Load），也就是信息管理中ETL管理数据源的三个基本功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Power Query 用Excel玩转商业智能数据处理">
 <meta property="og:url" content="http://yoursite.com/2018/05/20/Power Query 用Excel玩转商业智能数据处理/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="越努力越幸运">
+<meta property="og:description" content="《Power Query 用Excel玩转商业智能数据处理》一书由 朱仕平 著。Power Query在Office 2016中已经被作为内置的工具嵌入【数据】选项卡中。Power Query集成了Access和Excel的功能，可以对数据进行可视化菜单操作，完成对数据的提取（Extract）、转换（Transform）、加载（Load），也就是信息管理中ETL管理数据源的三个基本功能。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T14:39:34.167Z">
+<meta property="og:updated_time" content="2018-06-23T04:40:43.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Power Query 用Excel玩转商业智能数据处理">
-<meta name="twitter:description" content="越努力越幸运">
+<meta name="twitter:description" content="《Power Query 用Excel玩转商业智能数据处理》一书由 朱仕平 著。Power Query在Office 2016中已经被作为内置的工具嵌入【数据】选项卡中。Power Query集成了Access和Excel的功能，可以对数据进行可视化菜单操作，完成对数据的提取（Extract）、转换（Transform）、加载（Load），也就是信息管理中ETL管理数据源的三个基本功能。">
 
 
 
@@ -319,7 +319,616 @@
       
 
       
-        
+        <p>《Power Query 用Excel玩转商业智能数据处理》一书由 朱仕平 著。Power Query在Office 2016中已经被作为内置的工具嵌入【数据】选项卡中。Power Query集成了Access和Excel的功能，可以对数据进行可视化菜单操作，完成对数据的提取（Extract）、转换（Transform）、加载（Load），也就是信息管理中ETL管理数据源的三个基本功能。<a id="more"></a></p>
+<h2 id="Power-Query"><a href="#Power-Query" class="headerlink" title="Power Query"></a>Power Query</h2><p>有了Power Query，我们不需要借助VBA，就可以轻松地将工作簿中的所有工作表合并成一张工作表，也可以吧一个文件夹下的所有子文件夹中的工作簿全部合并成一张工作表。将合并后的数据加载到Power Pivot中可以进行后期大量的数据整理和分析。对于查询Web数据，Power Query也是一把好手，我们想要的数据基本都可以通过Power Query呈现出来。<br>Power Query是一个非常方便的工具，只要在工作中有思路，有想法，就可以吧一些复杂的表格，根据自己的需求，转换成可以方便统计的数据连接。然后对数据连接进行加载、统计、分析、图标展示。<br>关于Power Query的各个功能如何使用，基本都可以在本书中找到解答。例如：选择列、删除列、保留行、删除行、排序、拆分列、分组依据、数据类型、将第一行作为标题、替换值、合并查询、追加查询、转置表格等。书中都有详细的步骤和截图说明。</p>
+<p>##M语言<br>使用Power Query菜单的操作过程都会被记录成一个公式，这种公式被称为M语言公式。</p>
+<ul>
+<li><p><strong>M语言基础</strong><br>M语言实际就是通过函数公式将结果传递给变量，每个变量对应一个步骤，每个变量的步骤都环环相扣；这些公式可以使用现成的函数，也可以使用自定义函数。需要注意的是，公式中的函数和参数对大小写都非常敏感。<br>每个查询公式都指向前一个步骤的变量名称，前一个步骤的变量名称就是一个实际的结果，这个结果可以是Value、Record、List、Table。如果公式太长，可以在中间任意地方强制换行；但每个公式在最后都应该输入一个逗号，然后换行到第二个步骤。<br>直到最后一个步骤时，才不再需要逗号，将最后一个查询步骤作为最终的结果，使用in语句把这个步骤传递回【查询编辑器】<br>下面主要对M语言的部分函数参数和部分函数做一个简单的介绍。若在实际应用中需要使用到其它函数，可在书中进一步查找。加粗显示的函数为在GE实习过程中用到的一些参数和函数。</p>
+</li>
+<li><p><strong>部分函数参数说明</strong></p>
+</li>
+</ul>
+<p>Occurence : 获取位置信息</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Occurence.First</td>
+<td>第1次位置</td>
+</tr>
+<tr>
+<td><strong>Occurence.Last</strong></td>
+<td>最后1次位置</td>
+</tr>
+<tr>
+<td>Occurence.All</td>
+<td>所有位置</td>
+</tr>
+</tbody>
+</table>
+<p>ComparisonCriteria : 比较规则</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order.Ascending</td>
+<td>升序</td>
+</tr>
+<tr>
+<td>Order.Descending</td>
+<td>降序</td>
+</tr>
+</tbody>
+</table>
+<p>JoinKind : 连接种类</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JoinKind.Inner</td>
+<td>内部连接</td>
+</tr>
+<tr>
+<td>JoinKind.LeftOuter</td>
+<td>左外部连接</td>
+</tr>
+<tr>
+<td>JoinKind.RightOuter</td>
+<td>右外部连接</td>
+</tr>
+<tr>
+<td>JoinKind.FullOuter</td>
+<td>完全外部连接</td>
+</tr>
+<tr>
+<td>JoinKind.LeftAnti</td>
+<td>左反连接</td>
+</tr>
+<tr>
+<td>JoinKind.RightAnti</td>
+<td>右反连接</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Text类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>计算</td>
+<td><strong>Text.Length</strong></td>
+<td>返回字符串长度</td>
+</tr>
+<tr>
+<td>2</td>
+<td>转换</td>
+<td><strong>Text.From</strong></td>
+<td>返回Value的文本表现形式</td>
+</tr>
+<tr>
+<td>3</td>
+<td>获取</td>
+<td><strong>Text.Range</strong></td>
+<td>从指定位置开始返回指定个数的字符串</td>
+</tr>
+<tr>
+<td>4</td>
+<td>判断</td>
+<td><strong>Text.Contains</strong></td>
+<td>判断A字符串是否包含B字符串</td>
+</tr>
+<tr>
+<td>5</td>
+<td>判断</td>
+<td><strong>Text.PositionOf</strong></td>
+<td>判断B字符串在A字符串中的位置</td>
+</tr>
+<tr>
+<td>6</td>
+<td>判断</td>
+<td><strong>Text.PositionOfAny</strong></td>
+<td>判断A字符串中另一字符集合list列表的位置</td>
+</tr>
+<tr>
+<td>7</td>
+<td>转换</td>
+<td><strong>Text.Upper</strong></td>
+<td>所有字母转换为大写</td>
+</tr>
+<tr>
+<td>8</td>
+<td>转换</td>
+<td><strong>Text.Trim</strong></td>
+<td>清除字符串两端指定的字符</td>
+</tr>
+<tr>
+<td>9</td>
+<td>转换</td>
+<td><strong>Text.Combine</strong></td>
+<td>将字符集list列表合并成字符串</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Number类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>常量</td>
+<td>Number.NaN</td>
+<td>代表0/0，返回NaN</td>
+</tr>
+<tr>
+<td>2</td>
+<td>随机数</td>
+<td>Number.Random</td>
+<td>返回介于0~1的小数</td>
+</tr>
+<tr>
+<td>3</td>
+<td>随机数</td>
+<td>Number.RandomBetween</td>
+<td>返回指定值之间的小数</td>
+</tr>
+<tr>
+<td>4</td>
+<td>转换</td>
+<td>Number.FromText</td>
+<td>从文本数值转换为数字</td>
+</tr>
+<tr>
+<td>5</td>
+<td>舍入</td>
+<td>Number.Round</td>
+<td>舍入到指定位数</td>
+</tr>
+<tr>
+<td>6</td>
+<td>计算</td>
+<td>Number.Abs</td>
+<td>返回绝对值</td>
+</tr>
+<tr>
+<td>7</td>
+<td>三角函数</td>
+<td>Number.Cos</td>
+<td>余弦</td>
+</tr>
+<tr>
+<td>8</td>
+<td>其他函数</td>
+<td>Number.Log</td>
+<td>返回指定底数的数字对数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Time类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>计算</td>
+<td>Time.Hour</td>
+<td>返回时间的小时数</td>
+</tr>
+<tr>
+<td>2</td>
+<td>计算</td>
+<td>Time.Minute</td>
+<td>返回时间的分钟数</td>
+</tr>
+<tr>
+<td>3</td>
+<td>计算</td>
+<td>Time.Second</td>
+<td>返回时间的秒钟数</td>
+</tr>
+<tr>
+<td>4</td>
+<td>智能时间</td>
+<td>Time.ToRecord</td>
+<td>返回时间中的时、分、秒的Recond记录</td>
+</tr>
+<tr>
+<td>5</td>
+<td>智能时间</td>
+<td>Time.StartOfHour</td>
+<td>返回当时小时的起始值</td>
+</tr>
+<tr>
+<td>6</td>
+<td>智能时间</td>
+<td>Time.EndOfHour</td>
+<td>返回当时小时的结束值</td>
+</tr>
+<tr>
+<td>7</td>
+<td>转换</td>
+<td>Time.From</td>
+<td>将给定的value返回时间</td>
+</tr>
+<tr>
+<td>8</td>
+<td>转换</td>
+<td>Time.FromText</td>
+<td>从文本表示的Text返回时间</td>
+</tr>
+<tr>
+<td>8</td>
+<td>转换</td>
+<td>Time.ToText</td>
+<td>返回指定文本样式的日期</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Date类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>计算</td>
+<td>Date.Year</td>
+<td>返回日期的年份</td>
+</tr>
+<tr>
+<td>2</td>
+<td>计算</td>
+<td>Date.QuarterOfYear</td>
+<td>返回日期的季度数</td>
+</tr>
+<tr>
+<td>3</td>
+<td>智能日期</td>
+<td>Date.EndOfDay</td>
+<td>返回日期当天的结束值</td>
+</tr>
+<tr>
+<td>4</td>
+<td>判断</td>
+<td>Date.IsLeapYear</td>
+<td>判断日期是否在闰年</td>
+</tr>
+<tr>
+<td>5</td>
+<td>转换</td>
+<td>Date.ToText</td>
+<td>返回指定文本样式的日期</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>DateTime类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>计算</td>
+<td>DateTime.Date</td>
+<td>返回日期时间的日期部分</td>
+</tr>
+<tr>
+<td>2</td>
+<td>转换</td>
+<td>DateTime.ToText</td>
+<td>返回指定文本格式的日期时间</td>
+</tr>
+<tr>
+<td>3</td>
+<td>智能时间</td>
+<td>DateTime.IsInCurrentHour</td>
+<td>判断时间是否是系统时间的当前小时</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Duration类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>计算</td>
+<td>Duration.Days</td>
+<td>获取持续时间的日期部分</td>
+</tr>
+<tr>
+<td>2</td>
+<td>创建</td>
+<td>Duration.ToRecord</td>
+<td>获取持续时间的各部分Record</td>
+</tr>
+<tr>
+<td>3</td>
+<td>转换</td>
+<td>Duration.TotalDays</td>
+<td>将持续时间换算成总天数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Record类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>计算</td>
+<td>Record.FieldCount</td>
+<td>返回记录的字段数</td>
+</tr>
+<tr>
+<td>2</td>
+<td>判断</td>
+<td>Record.HasFields</td>
+<td>检查是否包含某个字段</td>
+</tr>
+<tr>
+<td>3</td>
+<td>选择</td>
+<td>Record.Field</td>
+<td>返回指定字段的值</td>
+</tr>
+<tr>
+<td>4</td>
+<td>转换</td>
+<td>Record.AddField</td>
+<td>添加一个字段</td>
+</tr>
+<tr>
+<td>5</td>
+<td>序列化</td>
+<td>Record.FromTable</td>
+<td>Table转换成Record</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>List类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>计算</td>
+<td>List.Sum</td>
+<td>计算非空值的总和</td>
+</tr>
+<tr>
+<td>2</td>
+<td>判断</td>
+<td>List.IsEmpty</td>
+<td>判断list是否为空</td>
+</tr>
+<tr>
+<td>3</td>
+<td>选择</td>
+<td>List.Select</td>
+<td>按给定条件选择项目</td>
+</tr>
+<tr>
+<td>4</td>
+<td>操作</td>
+<td>List.Sort</td>
+<td>排序</td>
+</tr>
+<tr>
+<td>5</td>
+<td>集合</td>
+<td>List.Combine</td>
+<td>合并多个list为新list</td>
+</tr>
+<tr>
+<td>6</td>
+<td>创建</td>
+<td>List.DateTimes</td>
+<td>根据规则创建日期时间列表</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Table类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>分类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>转换</td>
+<td>Table.ToRows</td>
+<td>转换成行的list表格</td>
+</tr>
+<tr>
+<td>2</td>
+<td>创建</td>
+<td>Table.FromRows</td>
+<td>从多行list创建表格</td>
+</tr>
+<tr>
+<td>3</td>
+<td>计算</td>
+<td>Table.RowCount</td>
+<td>统计表的行数</td>
+</tr>
+<tr>
+<td>4</td>
+<td>判断</td>
+<td>Table.IsEmpty</td>
+<td>判断表格是否为空表</td>
+</tr>
+<tr>
+<td>5</td>
+<td>选择</td>
+<td><strong>Table.SelectRows</strong></td>
+<td>根据指定条件选择行</td>
+</tr>
+<tr>
+<td>6</td>
+<td>选择</td>
+<td><strong>Table.SelectColumns</strong></td>
+<td>仅选择某些列</td>
+</tr>
+<tr>
+<td>7</td>
+<td>操作</td>
+<td><strong>Table.Sort</strong></td>
+<td>排序</td>
+</tr>
+<tr>
+<td>8</td>
+<td>操作</td>
+<td><strong>Table.RenameColumns</strong></td>
+<td>重命名列标题</td>
+</tr>
+<tr>
+<td>9</td>
+<td>操作</td>
+<td><strong>Table.AddColumn</strong></td>
+<td>添加新列</td>
+</tr>
+<tr>
+<td>10</td>
+<td>集合</td>
+<td><strong>Table.NestedJoin</strong></td>
+<td>合并查询</td>
+</tr>
+<tr>
+<td>11</td>
+<td>操作</td>
+<td><strong>Table.ExpandTableColumn</strong></td>
+<td>展开表格</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>文件类函数</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>函数名</th>
+<th>概述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Excel.CurrentWorkbook</strong></td>
+<td>从当前表导入</td>
+</tr>
+<tr>
+<td>2</td>
+<td>File.Contents</td>
+<td>从文件夹导入</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Excel.Workbook</strong></td>
+<td>从指定路径导入表格</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Csv.Document</td>
+<td>从文本文件导入表格</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -407,8 +1016,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -427,7 +1045,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -454,6 +1072,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Power-Query"><span class="nav-number">1.</span> <span class="nav-text">Power Query</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
