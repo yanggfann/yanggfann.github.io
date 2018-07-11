@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="《Power Query 用Excel玩转商业智能数据处理》一书由 朱仕平 著。Power Query在Office 2016中已经被作为内置的工具嵌入【数据】选项卡中。Power Query集成了Access和Excel的功能，可以对数据进行可视化菜单操作，完成对数据的提取（Extract）、转换（Transform）、加载（Load），也就是信息管理中ETL管理数据源的三个基本功能。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-23T04:48:02.955Z">
+<meta property="og:updated_time" content="2018-06-23T04:51:08.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Power Query 用Excel玩转商业智能数据处理">
 <meta name="twitter:description" content="《Power Query 用Excel玩转商业智能数据处理》一书由 朱仕平 著。Power Query在Office 2016中已经被作为内置的工具嵌入【数据】选项卡中。Power Query集成了Access和Excel的功能，可以对数据进行可视化菜单操作，完成对数据的提取（Extract）、转换（Transform）、加载（Load），也就是信息管理中ETL管理数据源的三个基本功能。">
@@ -321,7 +321,7 @@
       
         <p>《Power Query 用Excel玩转商业智能数据处理》一书由 朱仕平 著。Power Query在Office 2016中已经被作为内置的工具嵌入【数据】选项卡中。Power Query集成了Access和Excel的功能，可以对数据进行可视化菜单操作，完成对数据的提取（Extract）、转换（Transform）、加载（Load），也就是信息管理中ETL管理数据源的三个基本功能。<a id="more"></a></p>
 <h2 id="Power-Query"><a href="#Power-Query" class="headerlink" title="Power Query"></a>Power Query</h2><p>有了Power Query，我们不需要借助VBA，就可以轻松地将工作簿中的所有工作表合并成一张工作表，也可以吧一个文件夹下的所有子文件夹中的工作簿全部合并成一张工作表。将合并后的数据加载到Power Pivot中可以进行后期大量的数据整理和分析。对于查询Web数据，Power Query也是一把好手，我们想要的数据基本都可以通过Power Query呈现出来。<br>Power Query是一个非常方便的工具，只要在工作中有思路，有想法，就可以吧一些复杂的表格，根据自己的需求，转换成可以方便统计的数据连接。然后对数据连接进行加载、统计、分析、图标展示。<br>关于Power Query的各个功能如何使用，基本都可以在本书中找到解答。例如：选择列、删除列、保留行、删除行、排序、拆分列、分组依据、数据类型、将第一行作为标题、替换值、合并查询、追加查询、转置表格等。书中都有详细的步骤和截图说明。</p>
-<p>##M语言<br>使用Power Query菜单的操作过程都会被记录成一个公式，这种公式被称为M语言公式。</p>
+<h2 id="M语言"><a href="#M语言" class="headerlink" title="M语言"></a>M语言</h2><p>使用Power Query菜单的操作过程都会被记录成一个公式，这种公式被称为M语言公式。</p>
 <ul>
 <li><p><strong>M语言基础</strong><br>M语言实际就是通过函数公式将结果传递给变量，每个变量对应一个步骤，每个变量的步骤都环环相扣；这些公式可以使用现成的函数，也可以使用自定义函数。需要注意的是，公式中的函数和参数对大小写都非常敏感。<br>每个查询公式都指向前一个步骤的变量名称，前一个步骤的变量名称就是一个实际的结果，这个结果可以是Value、Record、List、Table。如果公式太长，可以在中间任意地方强制换行；但每个公式在最后都应该输入一个逗号，然后换行到第二个步骤。<br>直到最后一个步骤时，才不再需要逗号，将最后一个查询步骤作为最终的结果，使用in语句把这个步骤传递回【查询编辑器】<br>下面主要对M语言的部分函数参数和部分函数做一个简单的介绍。若在实际应用中需要使用到其它函数，可在书中进一步查找。加粗显示的函数为在GE实习过程中用到的一些参数和函数。</p>
 </li>
@@ -1045,7 +1045,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1082,7 +1082,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Power-Query"><span class="nav-number">1.</span> <span class="nav-text">Power Query</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Power-Query"><span class="nav-number">1.</span> <span class="nav-text">Power Query</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M语言"><span class="nav-number">2.</span> <span class="nav-text">M语言</span></a></li></ol></div>
             
 
           </div>
