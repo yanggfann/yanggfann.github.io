@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Node,Git,Hexo," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
+<meta name="keywords" content="Node,Git,Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建个人博客--详细教程">
 <meta property="og:url" content="http://yoursite.com/2016/09/20/搭建个人博客--详细教程/index.html">
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-22T02:47:18.158Z">
+<meta property="og:updated_time" content="2018-07-14T04:28:36.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客--详细教程">
 <meta name="twitter:description" content="GitHub Pages免费提供300M不限流量的空间，提供给全球用户搭建公共静态页面托管服务。经过各种找资料，踩过各种坑，终于搭建好了Hexo。这篇文章记录了利用GitHub Pages搭建个人博客的所有过程。">
@@ -292,6 +293,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/相关技术/" itemprop="url" rel="index">
+                    <span itemprop="name">相关技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/相关技术/搭建博客教程/" itemprop="url" rel="index">
+                    <span itemprop="name">搭建博客教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -324,6 +358,7 @@
 <li><strong>GitHub</strong>: GitHub是一个利用Git进行版本控制，专门用于存放软件代码与内容的共享虚拟主机服务。</li>
 <li><strong>GitHub Pages</strong>: GitHub Pages设计的初衷是为托管在GitHub上的项目提供介绍页面，开发者们可以通过GitHub Pages为自己的每个项目创建一个用于介绍该项目的静态网站。</li>
 <li><strong>Git</strong> : Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git就是一个版本控制的工具，用它可以将我们写的代码提交到GitHub上。</li>
+<li><strong>Hexo</strong> :Hexo，基于Node.js的博客框架，可以方便地生成静态博客页面，并部署在github上。</li>
 </ul>
 <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><ul>
 <li><strong>Node</strong><br>作用：生成静态页面。<br>安装步骤：<br>   1.在Node.js<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>下载相应平台的最新版本。<br>   2.点击8.9.1LTS下载至E盘新建的blogresoft文件夹中。<br>   3.双击.msi文件安装，点击next即可，自定义安装地址为E:\blogresoft\node。</li>
@@ -401,6 +436,8 @@ branch: master
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|姓名|年龄|</span><br><span class="line">|-|-|</span><br><span class="line">|张三|<span class="number">25</span>|</span><br><span class="line">|李四|<span class="number">23</span>|</span><br></pre></td></tr></table></figure>
 <p>   4.在博客中用markdown插入图片<br>   1&gt; 将_config.yml中的post_asset_folder:false改为post_asset_folder:true<br>   2&gt; 在source文件夹下新建文件夹，并命名为img<br>   3&gt; 插入图片的语法如下，其中ATA代表图片名称，应替换为需要插入的图片名：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/img/ATA.jpg)</span><br></pre></td></tr></table></figure>
+<p>  5.在博客中用markdown插入空格或回车</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">插入空格语法：</span><br><span class="line">&amp;nbsp; </span><br><span class="line">插入回车语法：</span><br><span class="line">&lt;/br&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>至此，搭建博客以及写博客时相关配置的介绍已经全部完成，希望这篇博文对你搭建博客的过程有所帮助。同时感谢侯俊耀师兄的帮助以及韩春师兄的博客文章–<a href="http://hanchun.tech/2017/01/27/借助GitHub-Pages搭建博客/#more" target="_blank" rel="external">借助GitHub Pages搭建博客</a>。</p>
@@ -418,6 +455,16 @@ branch: master
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node/" rel="tag"># Node</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+        </div>
       
 
       
@@ -527,10 +574,10 @@ branch: master
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -538,10 +585,10 @@ branch: master
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
