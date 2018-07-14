@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="直到 90 年代早期,使应用程序自动化还是充满挑战性的领域.对每个需要自动化的应用程序,人们不得不学习一种不同的自动化语言.例如:可以用EXCEL的宏语言来使EXCEL自动化,使用WORD BASIC使WORD自动化,等等.微软决定让它开发出来的应用程序共享一种通用的自动化语言——–Visual Basic For Application(VBA,可以认为 VBA 是非常流行的应用程序开发语言VA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串模糊匹配---VBA">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/字符串模糊匹配 VBA/index.html">
+<meta property="og:site_name" content="技术博客">
+<meta property="og:description" content="直到 90 年代早期,使应用程序自动化还是充满挑战性的领域.对每个需要自动化的应用程序,人们不得不学习一种不同的自动化语言.例如:可以用EXCEL的宏语言来使EXCEL自动化,使用WORD BASIC使WORD自动化,等等.微软决定让它开发出来的应用程序共享一种通用的自动化语言——–Visual Basic For Application(VBA,可以认为 VBA 是非常流行的应用程序开发语言VA">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-12T13:44:07.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字符串模糊匹配---VBA">
+<meta name="twitter:description" content="直到 90 年代早期,使应用程序自动化还是充满挑战性的领域.对每个需要自动化的应用程序,人们不得不学习一种不同的自动化语言.例如:可以用EXCEL的宏语言来使EXCEL自动化,使用WORD BASIC使WORD自动化,等等.微软决定让它开发出来的应用程序共享一种通用的自动化语言——–Visual Basic For Application(VBA,可以认为 VBA 是非常流行的应用程序开发语言VA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/12/字符串模糊匹配 VBA/"/>
+
+
+
+
+
+  <title>字符串模糊匹配---VBA | 技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/字符串模糊匹配 VBA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨帆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">字符串模糊匹配---VBA</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-12T20:34:23+08:00">
+                2018-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>直到 90 年代早期,使应用程序自动化还是充满挑战性的领域.对每个需要自动化的应用程序,人们不得不学习一种不同的自动化语言.例如:可以用EXCEL的宏语言来使EXCEL自动化,使用WORD BASIC使WORD自动化,等等.微软决定让它开发出来的应用程序共享一种通用的自动化语言——–Visual Basic For Application(<a href="https://www.w3cschool.cn/excelvba/excelvba-basics.html" target="_blank" rel="external">VBA</a>,可以认为 VBA 是非常流行的应用程序开发语言VASUAL BASIC 的子集.实际上VBA是”寄生于”VB应用程序的版本. <a id="more"></a></p>
+<h2 id="VBA"><a href="#VBA" class="headerlink" title="VBA"></a>VBA</h2><ul>
+<li><p><strong>VBA功能</strong><br>1.使重复的任务自动化.<br>2.自定义EXCEL工具栏,菜单和界面.<br>3.简化模板的使用.<br>4.自定义EXCEL,使其成为开发平台.<br>5.创建报表.<br>6.对数据进行复杂的操作和分析.</p>
+</li>
+<li><p><strong>EXCEL作为开发平台的优点</strong><br>1.EXCEL本身功能强大,包括打印,文件处理,格式化和文本编辑.<br>2.EXCEL内置大量函数.<br>3.EXCEL界面熟悉.<br>4.可连接到多种数据库.</p>
+</li>
+</ul>
+<h2 id="VBA语言的基础语法"><a href="#VBA语言的基础语法" class="headerlink" title="VBA语言的基础语法"></a>VBA语言的基础语法</h2><ul>
+<li><p><strong>标识符</strong><br>1.<strong>定义：</strong>标识符是一种标识变量、常量、过程、函数、类等语言构成单位的符号，利用它可以完成对变量、常量、过程、函数、类等引用。<br>2.<strong>命名规则：</strong><br>(1)字母打头，由字母、数字和下划线组成，如A987b_23Abc<br>(2)字符长度小于40<br>(3)不能与VB保留字重名，如public，private，dim，goto，next，with，integer，single等</p>
+</li>
+<li><p><strong>运算符</strong><br>1.<strong>定义：</strong>运算符是代表VB某种运算功能的符号。<br>2.<strong>运算符介绍：</strong><br>(1)赋值运算符  =<br>(2)数学运算符 &amp;、+ (字符连接符)、+(加)、-（减）、Mod（取余）、\（整除）、*（乘）、/<br>（除）、-（负号）、^（指数）<br>(3)逻辑运算符Not（非）、And（与）、Or(或)、Xor(异或)、Eqv(相等)、Imp(隐含)<br>(4)关系运算符 = （相同）、&lt;&gt;（不等）、&gt;（大于）、&lt;（小于）、&gt;=（不小于）、&lt;=（不大于）、<br>Like、Is<br>(5)位运算符  Not（逻辑非）、And（逻辑与）、Or（逻辑或）、Xor（逻辑异或）、Eqv（逻辑<br>等）、Imp（隐含）</p>
+</li>
+<li><p><strong>数据类型</strong><br>VBA共有12种数据类型，具体见下表，此外用户还可以根据以下类型用Type自定义数据类型。<br>|数据类型|类型标识符|字节|<br>|-|-|-|<br>|字符串型 String|$|字符长度(0-65400)|<br>|字节型 Byte|无|1|<br>|布尔型 Boolean|无|2|<br>|整数型 Integer|%|2|<br>|长整数型 Long|&amp;|4|<br>|单精度型 Single|!|4|<br>|双精度型 Double|#|8|<br>|日期型 Date|无|8|<br>|货币型 Currency|@|8|<br>|小数点型 Decimal|无|14|<br>|变体型 Variant|无|以上任意类型，可变|<br>|对象型 Object|无|4|</p>
+</li>
+<li><p><strong>变量</strong><br>Dim     变量 as 类型    ‘定义为局部变量，如  Dim     xyz as integer<br>Private 变量 as 类型    ‘定义为私有变量，如  Private xyz as byte<br>Public  变量 as 类型    ‘定义为公有变量，如  Public  xyz as single<br>Global  变量 as 类型    ‘定义为全局变量，如  Global  xyz as date<br>Static  变量 as 类型    ‘定义为静态变量，如  Static  xyz as double</p>
+</li>
+<li><p><strong>注释和赋值语句</strong><br>1.注释语句是用来说明程序中某些语句的功能和作用,语句前加单引号’标识为注释语句。<br>2.赋值语句是进行对变量或对象属性赋值的语句，采用赋值号 =。</p>
+</li>
+<li><p><strong>书写规范</strong><br>1.VBA不区分标识符的字母大小写，一律认为是小写字母<br>2.一行可以书写多条语句，各语句之间以冒号 :  分开<br>3.一条语句可以多行书写，以空格加下划线 _  来标识下行为续行</p>
+</li>
+<li><p><strong>判断语句</strong><br>If…Then…Else语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If Number &lt; <span class="number">10</span>  Then</span><br><span class="line">    Digits = <span class="number">1</span></span><br><span class="line">Else</span><br><span class="line">	Digits = <span class="number">3</span></span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>循环语句</strong><br>For Next语句, 以指定次数来重复执行一组语句:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">For Words = <span class="number">10</span> To <span class="number">1</span> Step  <span class="number">-1</span>            ＇建立 <span class="number">10</span> 次循环 </span><br><span class="line">	For Chars = <span class="number">0</span> To <span class="number">9</span>                  ＇建立 <span class="number">10</span> 次循环</span><br><span class="line">		MyString = MyString &amp; Chars     ＇将数字添加到字符串中</span><br><span class="line">	Next Chars                          ＇Increment counter</span><br><span class="line">	MyString = MyString &amp; <span class="string">" "</span>           ＇添加一个空格</span><br><span class="line">Next  Words</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>过程和函数</strong><br>过程是构成程序的一个模块，往往用来完成一个相对独立的功能。过程可以使程序更清晰、更具结构性。VBA具有四种过程：Sub 过程、Function函数、Property属性过程和Event事件过程。</p>
+</li>
+</ul>
+<p>Sub 过程的参数有两种传递方式：按值传递(ByVal)和按地址传递(ByRef):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Sub password (ByVal x <span class="keyword">as</span> integer, ByRef y <span class="keyword">as</span> integer)</span><br><span class="line">	If y=<span class="number">100</span> then y=x+y <span class="keyword">else</span> y=x-y</span><br><span class="line">	x=x+<span class="number">100</span></span><br><span class="line">End sub</span><br></pre></td></tr></table></figure></p>
+<p>函数实际是实现一种映射，它通过一定的映射规则，完成运算并返回结果。参数传递也两种：按值传递(ByVal)和按地址传递(ByRef):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Function password(ByVal x <span class="keyword">as</span> integer, byref y <span class="keyword">as</span> integer) <span class="keyword">as</span> boolean</span><br><span class="line">	If y=<span class="number">100</span> then y=x+y <span class="keyword">else</span> y=x-y</span><br><span class="line">	x=x+<span class="number">100</span></span><br><span class="line">	<span class="keyword">if</span> y=<span class="number">150</span> then password=true <span class="keyword">else</span> password=false</span><br><span class="line">End Function</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>内部函数</strong><br>在VBA程序语言中有许多内置函数，可以帮助程序代码设计和减少代码的编写工作。</li>
+</ul>
+<p><strong>测试函数:</strong><br>IsNumeric(x)          ‘是否为数字,  返回Boolean结果，True  or False<br>IsDate(x)             ‘是否是日期,  返回Boolean结果，True  or False<br>IsEmpty（x）          ‘是否为Empty, 返回Boolean结果，True  or False<br>IsArray(x)            ‘指出变量是否为一个数组。<br>IsError(expression)   ‘指出表达式是否为一个错误值<br>IsNull(expression)    ‘指出表达式是否不包含任何有效数据 (Null)。<br>IsObject(identifier)  ‘指出标识符是否表示对象变量</p>
+<p><strong>字符串函数:</strong><br>Trim(string)           ‘去掉string左右两端空白<br>Ltrim(string)          ‘去掉string左端空白<br>Rtrim(string)          ‘去掉string右端空白<br>Len(string)            ‘计算string长度<br>Left(string, x)        ‘取string左段x个字符组成的字符串<br>Right(string, x)       ‘取string右段x个字符组成的字符串<br>Mid(string, start,x)   ‘取string从start位开始的x个字符组成的字符串<br>Ucase(string)          ‘转换为大写<br>Lcase(string)          ‘转换为小写<br>Space(x)               ‘返回x个空白的字符串<br>Asc(string)            ‘返回一个 integer，代表字符串中首字母的字符代码<br>Chr(charcode)          ‘返回 string,其中包含有与指定的字符代码相关的字符</p>
+<p><strong>转换函数:</strong><br>CBool(expression)      ‘转换为Boolean型<br>CByte(expression)      ‘换为Byte型<br>CCur(expression)       ‘转换为Currency型<br>CDate(expression)      ‘转换为Date型<br>CDbl(expression)       ‘转换为Double型<br>CDec(expression)       ‘转换为Decemal型<br>CInt(expression)       ‘转换为Integer型<br>CLng(expression)       ‘转换为Long型<br>CSng(expression)       ‘转换为Single型<br>CStr(expression)       ‘转换为String型<br>CVar(expression)       ‘转换为Variant型<br>Val(string)            ‘转换为数据型<br>Str(number)            ‘转换为String</p>
+<h2 id="Levenshtein距离"><a href="#Levenshtein距离" class="headerlink" title="Levenshtein距离"></a>Levenshtein距离</h2><ul>
+<li><strong>定义</strong></li>
+</ul>
+<p>编辑距离（Edit Distance），又称Levenshtein距离，是指两个字串之间，由一个转成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。一般来说，编辑距离越小，两个串的相似度越大。</p>
+<ul>
+<li><strong>求解算法</strong></li>
+</ul>
+<p>比如要计算cafe-&gt;coffee的编辑距离。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>c</th>
+<th>o</th>
+<th>f</th>
+<th>f</th>
+<th>e</th>
+<th>e</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>c</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>a</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>f</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>e</td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>取右下角，得编辑距离为3。</p>
+<ul>
+<li><strong>实现代码</strong></li>
+</ul>
+<p><strong>功能：</strong>VBA对比计算两个字符串的相似度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">Private Function min(one As Integer, two As Integer, three As Integer)</span><br><span class="line">	min = one</span><br><span class="line">    If (two &lt; min) Then</span><br><span class="line">		min = two</span><br><span class="line">    End If</span><br><span class="line">    If (three &lt; min) Then</span><br><span class="line">		min = three</span><br><span class="line">    End If</span><br><span class="line">End Function</span><br><span class="line"></span><br><span class="line"><span class="string">'计算levenshtein距离 </span></span><br><span class="line"><span class="string">Private Function ld(str1 As String, str2 As String)</span></span><br><span class="line"><span class="string">'</span>去掉字符串两端空格</span><br><span class="line">str1 = RTrim(str1)</span><br><span class="line">str2 = RTrim(str2)</span><br><span class="line">Dim n, m, i, j As Integer</span><br><span class="line">Dim ch1, ch2 As String</span><br><span class="line">    n = Len(str1)    <span class="string">'存储字符串长度</span></span><br><span class="line"><span class="string">    m = Len(str2)</span></span><br><span class="line"><span class="string">    Dim temp As Integer</span></span><br><span class="line"><span class="string">    If (n = 0) Then  '</span>当第一个字符串长度为<span class="number">0</span></span><br><span class="line">        ld = m       <span class="string">'返回第二个字符串长度</span></span><br><span class="line"><span class="string">    End If</span></span><br><span class="line"><span class="string">    If (m = 0) Then</span></span><br><span class="line"><span class="string">        ld = n</span></span><br><span class="line"><span class="string">    End If</span></span><br><span class="line"><span class="string">Dim d As Variant</span></span><br><span class="line"><span class="string">ReDim d(n + 1, m + 1) As Variant     '</span>二维数组重定义</span><br><span class="line">	<span class="string">'初始化数据</span></span><br><span class="line"><span class="string">    For i = 0 To n</span></span><br><span class="line"><span class="string">        d(i, 0) = i</span></span><br><span class="line"><span class="string">    Next i</span></span><br><span class="line"><span class="string">    For j = 0 To m</span></span><br><span class="line"><span class="string">        d(0, j) = j</span></span><br><span class="line"><span class="string">    Next j</span></span><br><span class="line"><span class="string">    '</span>正式计算levenshtein距离--算法核心</span><br><span class="line">    For i = <span class="number">1</span> To n</span><br><span class="line">        ch1 = Mid(str1, i, <span class="number">1</span>)</span><br><span class="line">        For j = <span class="number">1</span> To m</span><br><span class="line">            ch2 = Mid(str2, j, <span class="number">1</span>)</span><br><span class="line">            If (ch1 = ch2) Then</span><br><span class="line">            	temp = <span class="number">0</span></span><br><span class="line">            Else</span><br><span class="line">                temp = <span class="number">1</span></span><br><span class="line">            End If</span><br><span class="line">            d(i, j) = min(d(i - <span class="number">1</span>, j) + <span class="number">1</span>, d(i, j - <span class="number">1</span>) + <span class="number">1</span>, d(i - <span class="number">1</span>, j - <span class="number">1</span>) + temp)</span><br><span class="line">        Next j</span><br><span class="line">    Next i</span><br><span class="line">    <span class="string">'返回右下角值(即levenshtein距离 )</span></span><br><span class="line"><span class="string">    ld = d(n, m)</span></span><br><span class="line"><span class="string">End Function</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'</span>计算相似度 </span><br><span class="line">Public Function sim(str1 As String, str2 As String)</span><br><span class="line">    Dim ldint As Integer</span><br><span class="line">    ldint = ld(str1, str2)</span><br><span class="line">    Dim strlen As Integer</span><br><span class="line">    If (Len(str1) &gt;= Len(str2)) Then</span><br><span class="line">        strlen = Len(str1)</span><br><span class="line">    Else</span><br><span class="line">        strlen = Len(str2)</span><br><span class="line">    End If</span><br><span class="line">    sim = <span class="number">1</span> - ldint / strlen</span><br><span class="line">End Function</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/11/正则表达式简介/" rel="next" title="正则表达式简介">
+                <i class="fa fa-chevron-left"></i> 正则表达式简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/12/字符串模糊匹配 python fuzzywuzzy库/" rel="prev" title="模糊匹配---fuzzywuzzy库">
+                模糊匹配---fuzzywuzzy库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="杨帆" />
+            
+              <p class="site-author-name" itemprop="name">杨帆</p>
+              <p class="site-description motion-element" itemprop="description">越努力越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VBA"><span class="nav-number">1.</span> <span class="nav-text">VBA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VBA语言的基础语法"><span class="nav-number">2.</span> <span class="nav-text">VBA语言的基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Levenshtein距离"><span class="nav-number">3.</span> <span class="nav-text">Levenshtein距离</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨帆</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

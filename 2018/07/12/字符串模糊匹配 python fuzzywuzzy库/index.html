@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="在实习期间第一次接触到了Microsoft Query、PowerPivot，通过在图书馆查阅资料，找到了由张文霖等编著的这本《谁说菜鸟不会数据分析（工具篇）》，感觉非常有用，根据本书，对在GE实习过程中用到的工具（Microsoft Query、PowerPivot）做一个简单的介绍。水晶仪表和VBA暂时还没有用到过，需要的时候可以查阅该书籍进一步了解。微软Power BI系列组件包括四大成员（">
+<meta name="description" content="fuzzywuzzy模糊字符串匹配使用Levenshtein Distance来计算序列之间的差异。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谁说菜鸟不会数据分析（工具篇）">
-<meta property="og:url" content="http://yoursite.com/2018/05/30/谁说菜鸟不会数据分析（工具篇）/index.html">
+<meta property="og:title" content="模糊匹配---fuzzywuzzy库">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/字符串模糊匹配 python fuzzywuzzy库/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="在实习期间第一次接触到了Microsoft Query、PowerPivot，通过在图书馆查阅资料，找到了由张文霖等编著的这本《谁说菜鸟不会数据分析（工具篇）》，感觉非常有用，根据本书，对在GE实习过程中用到的工具（Microsoft Query、PowerPivot）做一个简单的介绍。水晶仪表和VBA暂时还没有用到过，需要的时候可以查阅该书籍进一步了解。微软Power BI系列组件包括四大成员（">
+<meta property="og:description" content="fuzzywuzzy模糊字符串匹配使用Levenshtein Distance来计算序列之间的差异。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-23T04:48:14.984Z">
+<meta property="og:updated_time" content="2018-07-11T14:10:56.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谁说菜鸟不会数据分析（工具篇）">
-<meta name="twitter:description" content="在实习期间第一次接触到了Microsoft Query、PowerPivot，通过在图书馆查阅资料，找到了由张文霖等编著的这本《谁说菜鸟不会数据分析（工具篇）》，感觉非常有用，根据本书，对在GE实习过程中用到的工具（Microsoft Query、PowerPivot）做一个简单的介绍。水晶仪表和VBA暂时还没有用到过，需要的时候可以查阅该书籍进一步了解。微软Power BI系列组件包括四大成员（">
+<meta name="twitter:title" content="模糊匹配---fuzzywuzzy库">
+<meta name="twitter:description" content="fuzzywuzzy模糊字符串匹配使用Levenshtein Distance来计算序列之间的差异。">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/30/谁说菜鸟不会数据分析（工具篇）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/12/字符串模糊匹配 python fuzzywuzzy库/"/>
 
 
 
 
 
-  <title>谁说菜鸟不会数据分析（工具篇） | 技术博客</title>
+  <title>模糊匹配---fuzzywuzzy库 | 技术博客</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/谁说菜鸟不会数据分析（工具篇）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/字符串模糊匹配 python fuzzywuzzy库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨帆">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">谁说菜鸟不会数据分析（工具篇）</h1>
+          <h1 class="post-title" itemprop="name headline">模糊匹配---fuzzywuzzy库</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T10:15:23+08:00">
-                2018-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-12T20:34:23+08:00">
+                2018-07-12
               </time>
             
 
@@ -319,26 +319,42 @@
       
 
       
-        <p>在实习期间第一次接触到了Microsoft Query、PowerPivot，通过在图书馆查阅资料，找到了由张文霖等编著的这本《谁说菜鸟不会数据分析（工具篇）》，感觉非常有用，根据本书，对在GE实习过程中用到的工具（Microsoft Query、PowerPivot）做一个简单的介绍。水晶仪表和VBA暂时还没有用到过，需要的时候可以查阅该书籍进一步了解。微软Power BI系列组件包括四大成员（Power Query、 Power Pivot、 Power View和Power Map）<a id="more"></a></p>
-<p>##数据处理</p>
+        <p><strong><a href="https://github.com/seatgeek/fuzzywuzzy" target="_blank" rel="external">fuzzywuzzy</a></strong>模糊字符串匹配使用Levenshtein Distance来计算序列之间的差异。 <a id="more"></a></p>
+<h2 id="fuzzywuzzy安装"><a href="#fuzzywuzzy安装" class="headerlink" title="fuzzywuzzy安装"></a>fuzzywuzzy安装</h2><p>方法一：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install fuzzywuzzy</span><br></pre></td></tr></table></figure>
+<p>方法二，在Anaconda上安装：<br>1.启动anaconda命令窗口：开始-&gt;所有程序-&gt;anaconda-&gt;anaconda prompt<br>2.在anaconda prompt中输入pip install 路径 + whl文件名</p>
+<h2 id="Levenshtein距离"><a href="#Levenshtein距离" class="headerlink" title="Levenshtein距离"></a>Levenshtein距离</h2><p>fuzzywuzzy进行模糊匹配时所用到的求相似度的距离是<a href="https://en.wikipedia.org/wiki/Levenshtein_distance" target="_blank" rel="external">Levenshtein diatance</a></p>
 <ul>
-<li><strong>Microsoft Query</strong><br>Microsoft Query是用于将数据从外部数据源检索到其他Microsoft Office应用（特别是Microsoft Excel）中的一种程序。通过使用Microsoft Query可以从企业的数据库和文件中检索数据，而不必再Excel中重新输入需要分析的数据。也可以在每次更新数据库时，自动通过源数据库中的数据来更新Excel报表和汇总数据。<br>采用Microsoft Query进行处理分析的几种情况：<br>1.计算机没有安装其他数据库软件<br>2.数据处理量相对较小，数据量在Excel可容纳的范围内<br>3.无需进行数据处理，或者数据处理操作较为简单<br>4.初学者学习SQL语句</li>
-<li><strong>数据库</strong><br>数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。它利用数据库中的各种对象，记录、处理和分析各种数据。</li>
-<li><strong>Excel数据透视表</strong><br>数据透视表的作用：<br>1.能够改变数据表的行、列布局<br>2.能够快速汇总大量数据<br>3.能够基于原数据表创建数据分组，并对分组进行汇总统计<br>注释：<br>1.行：拖放到行中的数据字段中的每个数据项将占据透视表的一行<br>2.列：拖放到列中的数据字段中的每个数据项将占据透视表的一列，行和列确定一个二维表格<br>3.页：拖放到页中的字段，Excel将按该字段的数据项对透视表进行分页<br>4.数据：进行技术或汇总的字段名称</li>
+<li><strong><a href="https://www.jianshu.com/p/de3064109bb2" target="_blank" rel="external">Levenshtein距离</a>简介</strong><br>Levenshtein 距离是一种编辑距离，用来表示两个字符串的差异。编辑距离是指从字符串 A 开始，修改成字符串 B 的最小步骤数，每个以步骤中，你可以删除一个字符、修改一个字符或者新增一个字符。</li>
 </ul>
-<p>##数据分析</p>
+<p>比如我们把 acat 变成 gate 的时候，需要做如下的修改：</p>
+<blockquote>
+<p>删除 a<br>把 c 改成 g<br>新增 e<br>所以 acat 和 gate 的 Levenshtein 距离是 3。</p>
+</blockquote>
+<h2 id="fuzzywuzzy用法"><a href="#fuzzywuzzy用法" class="headerlink" title="fuzzywuzzy用法"></a>fuzzywuzzy用法</h2><ul>
+<li><strong>Usage</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> fuzzywuzzy <span class="keyword">import</span> fuzz</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> fuzzywuzzy <span class="keyword">import</span> process</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>PowerPivot</strong><br>PowerPivot，简称PP。PowerPivot是微软在Excel 2010中新增的一个插件工具。在PowerPivot中，Excel的行、列限制已被取消，这样我们能方便地操作更大型的数据。<br>PowerPivot的功能：<br>1.整合多数据源：PP可以从几乎任意地方导入任意数据源中的数据，包括Web服务、文本文件、关系数据库等数据源<br>2.处理海量数据：可以轻松组织、连接和操作大型数据集中的表，处理大型数据集（通常几百万行）时所体现的性能就像处理几百行的一样<br>3.操作界面简洁：通过使用固有的Excel 2010功能（例如数据透视表、数据透视图、切片器等），以交互方式浏览、分析和创建报表，只要我们熟悉Excel，就可以使用PowerPivot<br>4.实现信息共享：PowerPivot for SharePoint可以共享整个团队的工作部薄或将其发布到Web</li>
+<li><strong>Simple Ratio</strong></li>
 </ul>
-<p>##数据可视化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fuzz.ratio(<span class="string">"this is a test"</span>, <span class="string">"this is a test!"</span>)</span><br><span class="line">    <span class="number">97</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>水晶易表</strong><br>水晶易表（SAP Crystal Dashboard Design）是根据数据展现需求，在建立好的Excel数据报表或模型的基础上，结合相应的数据展现部件，通过鼠标简单的拖曳及数据关联和设置，将沉闷的数据结果生动、清晰、直观地展现出来。</li>
+<li><strong>Partial Ratio</strong></li>
 </ul>
-<p>##报告自动化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fuzz.partial_ratio(<span class="string">"this is a test"</span>, <span class="string">"this is a test!"</span>)</span><br><span class="line">    <span class="number">100</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>VBA</strong><br>VBA（Visual Basic For Application）是一种通用的自动化语言，它可以使Excel中常用的 操作步骤自动化，还可以创建自定义的解决方案。<br>在Excel中使用VBA有以下几个优点：<br>1.使固定、重复的任务程序自动化，提高工作效率<br>2.可进行复杂的数据处理和分析<br>3.可自定义Excel函数、工具栏、菜单和界面<br>4.可连接到多种数据库，并进行相应数据库操作</li>
+<li><strong>Token Sort Ratio</strong></li>
 </ul>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fuzz.ratio(<span class="string">"fuzzy wuzzy was a bear"</span>, <span class="string">"wuzzy fuzzy was a bear"</span>)</span><br><span class="line">    <span class="number">91</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fuzz.token_sort_ratio(<span class="string">"fuzzy wuzzy was a bear"</span>, <span class="string">"wuzzy fuzzy was a bear"</span>)</span><br><span class="line">    <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Token Set Ratio</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fuzz.token_sort_ratio(<span class="string">"fuzzy was a bear"</span>, <span class="string">"fuzzy fuzzy was a bear"</span>)</span><br><span class="line">    <span class="number">84</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fuzz.token_set_ratio(<span class="string">"fuzzy was a bear"</span>, <span class="string">"fuzzy fuzzy was a bear"</span>)</span><br><span class="line">    <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Process</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>choices = [<span class="string">"Atlanta Falcons"</span>, <span class="string">"New York Jets"</span>, <span class="string">"New York Giants"</span>, <span class="string">"Dallas Cowboys"</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>process.extract(<span class="string">"new york jets"</span>, choices, limit=<span class="number">2</span>)</span><br><span class="line">    [(<span class="string">'New York Jets'</span>, <span class="number">100</span>), (<span class="string">'New York Giants'</span>, <span class="number">78</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>process.extractOne(<span class="string">"cowboys"</span>, choices)</span><br><span class="line">    (<span class="string">"Dallas Cowboys"</span>, <span class="number">90</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -362,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/20/Power Query 用Excel玩转商业智能数据处理/" rel="next" title="Power Query 用Excel玩转商业智能数据处理">
-                <i class="fa fa-chevron-left"></i> Power Query 用Excel玩转商业智能数据处理
+              <a href="/2018/07/12/字符串模糊匹配 VBA/" rel="next" title="字符串模糊匹配---VBA">
+                <i class="fa fa-chevron-left"></i> 字符串模糊匹配---VBA
               </a>
             
           </div>
@@ -371,10 +387,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/10/GE实习之Target Cost/" rel="prev" title="GE实习之Target Cost">
-                GE实习之Target Cost <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -426,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -482,6 +503,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#fuzzywuzzy安装"><span class="nav-number">1.</span> <span class="nav-text">fuzzywuzzy安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Levenshtein距离"><span class="nav-number">2.</span> <span class="nav-text">Levenshtein距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fuzzywuzzy用法"><span class="nav-number">3.</span> <span class="nav-text">fuzzywuzzy用法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
